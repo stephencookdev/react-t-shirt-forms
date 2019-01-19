@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReFormJS from "..";
+import ReFormJS from "../src";
 
 const App = () => (
   <ReFormJS
