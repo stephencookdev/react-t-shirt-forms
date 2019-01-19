@@ -1,0 +1,22 @@
+{
+  "name": "reformjs",
+  "version": "0.0.1",
+  "description": "Simple forms, simple code.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel demo/index.html"
+  },
+  "keywords": [
+    "form",
+    "react"
+  ],
+  "author": "Stephen Cook",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.15.3",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
