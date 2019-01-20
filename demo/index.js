@@ -48,7 +48,7 @@ const App = () => (
   />
 );
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("app"));
 
 // Hot Module Replacement
 if (module.hot) {
