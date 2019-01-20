@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextInputComponent = ({ onChange, value, label, error }) => (
+const TextInputComponent = ({ onChange, onBlur, value, label, error }) => (
   <label
     className={
       "ReFormJS-component__label ReFormJS-text-input__label" +
@@ -8,7 +8,12 @@ const TextInputComponent = ({ onChange, value, label, error }) => (
     }
   >
     {label}
-    <input type="text" value={value} onChange={e => onChange(e.target.value)} />
+    <input
+      type="text"
+      value={value}
+      onChange={e => onChange(e.target.value)}
+      onBlur={e => onBlur(e)}
+    />
   </label>
 );
 

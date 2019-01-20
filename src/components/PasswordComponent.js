@@ -1,6 +1,6 @@
 import React from "react";
 
-const PasswordComponent = ({ onChange, value, label, error }) => (
+const PasswordComponent = ({ onChange, onBlur, value, label, error }) => (
   <label
     className={
       "ReFormJS-component__label ReFormJS-password__label" +
@@ -12,6 +12,7 @@ const PasswordComponent = ({ onChange, value, label, error }) => (
       type="password"
       value={value}
       onChange={e => onChange(e.target.value)}
+      onBlur={e => onBlur(e)}
     />
   </label>
 );

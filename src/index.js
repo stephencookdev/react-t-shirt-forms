@@ -36,15 +36,25 @@ const withFormDataState = X =>
         }),
         {}
       );
+      const errors = Object.keys(cookedSchema).reduce(
+        (acc, name) => ({
+          ...acc,
+          [name]: {
+            message: null,
+            validateOnChange: false
+          }
+        }),
+        {}
+      );
 
       this.state = {
         formState,
-        errors: {},
+        errors,
         submitting: false
       };
     }
 
-    setFormState = async formState => {
+    setFormState = formState => {
       // set the form state before the error state, in case the errors take
       // time to resolve
       this.setState(prevState => ({
@@ -54,20 +64,49 @@ const withFormDataState = X =>
         }
       }));
 
+      this.handleStateChange(formState);
+    };
+
+    handleStateChange = formState =>
+      this.detectErrors(formState, { stickyErrors: false });
+
+    triggerBlur = name =>
+      this.detectErrors(
+        { [name]: this.state.formState[name] },
+        { stickyErrors: true }
+      );
+
+    detectErrors = async (formState, { stickyErrors }) => {
       const { getValidationError } = validationFuncs;
 
       const cookedSchema = getCookedSchema(this.props.schema);
-      const nameList = Object.keys(formState).filter(
-        name => cookedSchema[name].validation
-      );
+      const nameList = Object.keys(formState).filter(name => {
+        const careAboutErrorsOnChange =
+          this.state.errors[name].message ||
+          this.state.errors[name].validateOnChange;
+
+        return (
+          cookedSchema[name].validation &&
+          (careAboutErrorsOnChange || stickyErrors)
+        );
+      });
       const validations = await Promise.all(
         nameList.map(name =>
           getValidationError(cookedSchema[name].validation, formState[name])
         )
       );
+
+      let errorsExist = false;
       const errors = {};
       for (let i = 0; i < nameList.length; i++) {
-        errors[nameList[i]] = validations[i];
+        const errorIExists = !!validations[i];
+        errorsExist = errorsExist || errorIExists;
+        errors[nameList[i]] = {
+          message: validations[i] || null,
+          validateOnChange: stickyErrors
+            ? errorsExist
+            : this.state.errors[nameList[i]].validateOnChange
+        };
       }
 
       this.setState(prevState => ({
@@ -76,6 +115,28 @@ const withFormDataState = X =>
           ...errors
         }
       }));
+
+      return errorsExist;
+    };
+
+    getFormErrors = () =>
+      Object.keys(this.state.errors).reduce(
+        (acc, name) => ({
+          ...acc,
+          [name]: this.state.errors[name].message
+        }),
+        {}
+      );
+
+    setSubmittingState = async submitting => {
+      if (!submitting) return this.setState({ submitting });
+
+      const errorsExist = await this.detectErrors(this.state.formState, {
+        stickyErrors: true
+      });
+      if (!errorsExist) this.setState({ submitting: true });
+
+      return !errorsExist;
     };
 
     render() {
@@ -84,9 +145,10 @@ const withFormDataState = X =>
           {...this.props}
           formState={this.state.formState}
           setFormState={this.setFormState}
+          triggerBlur={this.triggerBlur}
           submitting={this.state.submitting}
-          formErrors={this.state.errors}
-          setSubmittingState={submitting => this.setState({ submitting })}
+          formErrors={this.getFormErrors()}
+          setSubmittingState={this.setSubmittingState}
         />
       );
     }
@@ -95,6 +157,7 @@ const withFormDataState = X =>
 const Form = ({
   formState,
   setFormState,
+  triggerBlur,
   formErrors,
   submitting,
   setSubmittingState,
@@ -129,6 +192,7 @@ const Form = ({
         {...cookedSchema[name]}
         value={formState[name]}
         onChange={value => setFormState({ [name]: value })}
+        onBlur={() => triggerBlur(name)}
         formArgs={formArgs}
       />
     );
@@ -168,12 +232,13 @@ const Form = ({
   return (
     <form
       className="ReFormJS-form"
-      onSubmit={e => {
+      onSubmit={async e => {
         e.preventDefault();
-        setSubmittingState(true);
-        Promise.resolve(handleSubmit({ formArgs })).then(() =>
-          setSubmittingState(false)
-        );
+        const canSubmit = await setSubmittingState(true);
+        if (canSubmit) {
+          await handleSubmit({ formArgs });
+          setSubmittingState(false);
+        }
       }}
     >
       {Object.values(itemsWithExceptions)}

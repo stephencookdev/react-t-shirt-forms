@@ -25,11 +25,13 @@ const App = () => (
       },
       password: {
         type: "password",
-        label: "Password"
+        label: "Password",
+        validation: yup.string().required()
       },
       oldPassword: {
         type: "password",
-        label: "Old password"
+        label: "Old password",
+        validation: yup.string().oneOf([yup.ref("password")])
       },
       address: {
         type: "string",
