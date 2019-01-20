@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { getOptionDefaults, setOptionDefaults } from "./optionDefaults";
 import { getSchemaDefaults, setSchemaDefaults } from "./schemaDefaults";
-import { omit, findFirstOverlap } from "./utils";
+import { addValidation, validationFuncs } from "./validations";
+import { omit, findFirstOverlap, mergeDeep } from "./utils";
 
 const getCookedSchema = schema => {
   const schemaDefaults = getSchemaDefaults();
@@ -9,11 +10,11 @@ const getCookedSchema = schema => {
   const cookedSchema = Object.keys(schema).reduce(
     (acc, name) => ({
       ...acc,
-      [name]: {
-        ...(schemaDefaults.type[schema[name].type] || {}),
-        ...(schemaDefaults.name[name] || {}),
-        ...schema[name]
-      }
+      [name]: mergeDeep(
+        {},
+        schemaDefaults.type[schema[name].type] || {},
+        schema[name]
+      )
     }),
     {}
   );
@@ -38,17 +39,53 @@ const withFormDataState = X =>
 
       this.state = {
         formState,
+        errors: {},
         submitting: false
       };
     }
+
+    setFormState = async formState => {
+      // set the form state before the error state, in case the errors take
+      // time to resolve
+      this.setState(prevState => ({
+        formState: {
+          ...prevState.formState,
+          ...formState
+        }
+      }));
+
+      const { getValidationError } = validationFuncs;
+
+      const cookedSchema = getCookedSchema(this.props.schema);
+      const nameList = Object.keys(formState).filter(
+        name => cookedSchema[name].validation
+      );
+      const validations = await Promise.all(
+        nameList.map(name =>
+          getValidationError(cookedSchema[name].validation, formState[name])
+        )
+      );
+      const errors = {};
+      for (let i = 0; i < nameList.length; i++) {
+        errors[nameList[i]] = validations[i];
+      }
+
+      this.setState(prevState => ({
+        errors: {
+          ...prevState.errors,
+          ...errors
+        }
+      }));
+    };
 
     render() {
       return (
         <X
           {...this.props}
           formState={this.state.formState}
-          setFormState={formState => this.setState({ formState })}
+          setFormState={this.setFormState}
           submitting={this.state.submitting}
+          formErrors={this.state.errors}
           setSubmittingState={submitting => this.setState({ submitting })}
         />
       );
@@ -58,6 +95,7 @@ const withFormDataState = X =>
 const Form = ({
   formState,
   setFormState,
+  formErrors,
   submitting,
   setSubmittingState,
   ...props
@@ -100,7 +138,8 @@ const Form = ({
       [name]: React.cloneElement(
         renderFormItem({
           formArgs,
-          item
+          item,
+          error: formErrors[name] || null
         }),
         {
           key: name
@@ -143,5 +182,5 @@ const Form = ({
   );
 };
 
-export { setOptionDefaults, setSchemaDefaults };
+export { addValidation, setOptionDefaults, setSchemaDefaults };
 export default withFormDataState(Form);

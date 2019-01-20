@@ -1,4 +1,5 @@
 import React from "react";
+import { mergeDeep } from "./utils";
 import i18n from "./i18n";
 
 const optionDefaults = {
@@ -31,9 +32,7 @@ const optionDefaults = {
 const userOptionDefaults = {};
 
 export const setOptionDefaults = defaults =>
-  Object.merge(userOptionDefaults, defaults);
+  mergeDeep(userOptionDefaults, defaults);
 
-export const getOptionDefaults = () => ({
-  ...optionDefaults,
-  ...userOptionDefaults
-});
+export const getOptionDefaults = () =>
+  mergeDeep({}, optionDefaults, userOptionDefaults);

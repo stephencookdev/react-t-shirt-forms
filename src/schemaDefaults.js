@@ -1,4 +1,5 @@
 import i18n from "./i18n";
+import { mergeDeep } from "./utils";
 import TextInputComponent from "./components/TextInputComponent";
 import PasswordComponent from "./components/PasswordComponent";
 
@@ -13,16 +14,14 @@ const schemaDefaults = {
       component: PasswordComponent,
       initialValue: ""
     }
-  },
-  name: {}
+  }
 };
 
 const userSchemaDefaults = {};
 
-export const setSchemaDefaults = defaults =>
-  Object.merge(userSchemaDefaults, defaults);
+export const setSchemaDefaults = defaults => {
+  mergeDeep(userSchemaDefaults, defaults);
+};
 
-export const getSchemaDefaults = () => ({
-  ...schemaDefaults,
-  ...userSchemaDefaults
-});
+export const getSchemaDefaults = () =>
+  mergeDeep({}, schemaDefaults, userSchemaDefaults);

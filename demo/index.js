@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReFormJS from "../src";
+import ReFormJS, { addValidation } from "../src";
+import { yupSupport } from "../src/validations/yup";
+import * as yup from "yup";
+
+addValidation(yup, yupSupport);
 
 const App = () => (
   <ReFormJS
@@ -8,7 +12,11 @@ const App = () => (
       firstName: {
         type: "string",
         label: "First name",
-        initialValue: "Stephen"
+        initialValue: "Stephen",
+        validation: yup
+          .string()
+          .strict()
+          .lowercase()
       },
       lastName: {
         type: "string",
