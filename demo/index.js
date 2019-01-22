@@ -13,10 +13,7 @@ const App = () => (
         type: "string",
         label: "First name",
         initialValue: "Stephen",
-        validation: yup
-          .string()
-          .strict()
-          .lowercase()
+        validation: yup.string().lowercase()
       },
       lastName: {
         type: "string",
