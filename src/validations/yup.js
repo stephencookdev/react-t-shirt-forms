@@ -1,6 +1,25 @@
 export const yupSupport = yup => ({
   schemaDefaults: {
-    type: {}
+    type: {
+      string: {
+        validation: yup.string()
+      },
+      password: {
+        validation: yup.string()
+      },
+      email: {
+        validation: yup.string().email()
+      },
+      url: {
+        validation: yup.string().url()
+      },
+      date: {
+        validation: yup.date()
+      },
+      checkbox: {
+        validation: yup.boolean()
+      }
+    }
   },
 
   combineSchemaObject: validations => yup.object(validations),

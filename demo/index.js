@@ -22,7 +22,6 @@ const App = () => (
       },
       password: {
         type: "password",
-        label: "Password",
         validation: yup.string().required()
       },
       oldPassword: {
@@ -30,9 +29,28 @@ const App = () => (
         label: "Old password",
         validation: yup.string().oneOf([yup.ref("password")])
       },
-      address: {
-        type: "string",
-        label: "Address"
+      email: {
+        type: "email"
+      },
+      homepage: {
+        type: "url",
+        label: "Homepage"
+      },
+      dob: {
+        type: "date",
+        label: "Date of birth"
+      },
+      interested: {
+        type: "checkbox",
+        label: "Interested...?"
+      },
+      favouriteColour: {
+        type: "multichoice",
+        label: "Favourite colour",
+        choices: {
+          red: "Red",
+          blue: "Blue"
+        }
       }
     }}
     formItemExceptions={[
