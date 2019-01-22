@@ -17,7 +17,7 @@ export const omitBy = (obj, func) => pickBy(obj, (...args) => !func(...args));
 export const omit = (obj, keys) => omitBy(obj, k => keys.includes(k));
 
 export const isObject = item =>
-  item && typeof item === "object" && !Array.isArray(item);
+  item && typeof item === "object" && item.constructor === Object;
 
 export const mergeDeep = (target, ...sources) => {
   if (!sources.length) return target;
