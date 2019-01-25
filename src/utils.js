@@ -1,3 +1,7 @@
+import React from "react";
+
+export const renderFuncOrString = X => (typeof X === "function" ? <X /> : X);
+
 export const findFirstOverlap = (obj, keys) => {
   const objKeys = Object.keys(obj);
   return objKeys.find(k => keys.includes(k));

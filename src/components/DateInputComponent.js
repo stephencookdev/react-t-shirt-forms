@@ -1,13 +1,9 @@
 import React from "react";
+import { renderFuncOrString } from "../utils";
 
-const DateInputComponent = ({ onChange, onBlur, value, label, error }) => (
-  <label
-    className={
-      "ReFormJS-component__label ReFormJS-date-input__label" +
-      (error ? " ReFormJS-component__label--error" : "")
-    }
-  >
-    {label}
+const DateInputComponent = ({ onChange, onBlur, value, label }) => (
+  <label className="ReFormJS-component__label ReFormJS-date-input__label ReFormJS-text-input__label">
+    <span>{renderFuncOrString(label)}</span>
     <input
       type="date"
       value={value ? value.toISOString().slice(0, 10) : ""}

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import ReFormJS, { addValidation } from "../src";
 import { yupSupport } from "../src/validations/yup";
 import * as yup from "yup";
+import "../src/stylesheets/basic.css";
 
 addValidation(yup, yupSupport);
 
@@ -44,6 +45,17 @@ const App = () => (
         type: "checkbox",
         label: "Interested...?"
       },
+      stillInterested: {
+        type: "checkbox",
+        label: () => (
+          <span>
+            But what about in signing up to this <u>special!</u> offer?? What if
+            we made the text really long, to really make it sound interesting?
+            What about then?
+          </span>
+        ),
+        validation: yup.boolean().oneOf([true])
+      },
       favouriteColour: {
         type: "multichoice",
         label: "Favourite colour",
@@ -57,18 +69,20 @@ const App = () => (
       {
         keys: ["password", "oldPassword"],
         render: ({ items: { password, oldPassword } }) => (
-          <div>
-            <hr />
+          <div style={{ display: "flex" }}>
             {password}
             {oldPassword}
-            <hr />
           </div>
         )
       }
     ]}
-    handleSubmit={({ formArgs }) => {
+    handleSubmit={async ({ formArgs }) => {
       console.log(JSON.stringify(formArgs, null, 2));
-      return new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      formArgs.setFormErrors({
+        firstName: "some error",
+        __generic: "a real generic error"
+      });
     }}
   />
 );

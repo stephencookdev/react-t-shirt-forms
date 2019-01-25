@@ -11,6 +11,16 @@ const optionDefaults = {
     </div>
   ),
 
+  renderGenericError: ({ formArgs: { formErrors } }) => (
+    <div className="ReFormJS-form-error">
+      {formErrors.__generic ? (
+        <span className="ReFormJS-form-error__error-text">
+          {formErrors.__generic}
+        </span>
+      ) : null}
+    </div>
+  ),
+
   renderFormItem: ({ item, error }) => (
     <div
       className={
@@ -18,7 +28,7 @@ const optionDefaults = {
       }
     >
       {item}
-      {error && <span className="ReFormJS-form-item__error-text">{error}</span>}
+      <span className="ReFormJS-form-item__error-text">{error || null}</span>
     </div>
   ),
 

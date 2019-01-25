@@ -150,6 +150,20 @@ const withFormDataState = X =>
         {}
       );
 
+    setFormErrors = errors =>
+      this.setState({
+        errors: Object.keys(errors).reduce(
+          (acc, name) => ({
+            ...acc,
+            [name]: {
+              message: errors[name],
+              validateOnChange: !!errors[name]
+            }
+          }),
+          {}
+        )
+      });
+
     setSubmittingState = async submitting => {
       if (!submitting) return this.setState({ submitting });
 
@@ -171,6 +185,7 @@ const withFormDataState = X =>
           triggerBlur={this.triggerBlur}
           submitting={this.state.submitting}
           formErrors={this.getFormErrors()}
+          setFormErrors={this.setFormErrors}
           setSubmittingState={this.setSubmittingState}
         />
       );
@@ -182,6 +197,7 @@ const Form = ({
   setFormState,
   triggerBlur,
   formErrors,
+  setFormErrors,
   submitting,
   setSubmittingState,
   ...props
@@ -189,6 +205,7 @@ const Form = ({
   const {
     schema,
     renderButtons,
+    renderGenericError,
     renderFormItem,
     formItemExceptions,
     handleSubmit,
@@ -204,8 +221,10 @@ const Form = ({
   const formArgs = {
     passThroughProps,
     formState,
-    submitting,
-    setFormState
+    setFormState,
+    formErrors,
+    setFormErrors,
+    submitting
   };
 
   const items = Object.keys(cookedSchema).reduce((acc, name) => {
@@ -251,6 +270,7 @@ const Form = ({
   );
 
   const buttons = renderButtons({ formArgs });
+  const genericError = renderGenericError({ formArgs });
 
   return (
     <form
@@ -265,6 +285,7 @@ const Form = ({
       }}
     >
       {Object.values(itemsWithExceptions)}
+      {genericError}
       {buttons}
     </form>
   );

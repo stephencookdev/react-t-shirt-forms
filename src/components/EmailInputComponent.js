@@ -1,15 +1,11 @@
 import React from "react";
+import { renderFuncOrString } from "../utils";
 
-const EmailInputComponent = ({ onChange, onBlur, value, label, error }) => (
-  <label
-    className={
-      "ReFormJS-component__label ReFormJS-email-input__label" +
-      (error ? " ReFormJS-component__label--error" : "")
-    }
-  >
-    {label}
+const EmailInputComponent = ({ onChange, onBlur, value, label }) => (
+  <label className="ReFormJS-component__label ReFormJS-email-input__label ReFormJS-text-input__label">
+    <span>{renderFuncOrString(label)}</span>
     <input
-      type="email"
+      type="text"
       value={value}
       onChange={e => onChange(e.target.value)}
       onBlur={e => onBlur(e)}
