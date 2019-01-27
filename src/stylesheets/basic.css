@@ -102,14 +102,17 @@
   border: 0;
   transition: 0.3s ease all;
 }
-.ReFormJS-button-list button:hover,
-.ReFormJS-button-list button:focus {
+.ReFormJS-button-list button:not(:disabled):hover,
+.ReFormJS-button-list button:not(:disabled):focus {
   background: #38d;
   color: #fff;
-  transform: scale(1.02);
+  transform: scale(1.015);
 }
-.ReFormJS-button-list button:active {
+.ReFormJS-button-list button:not(:disabled):active {
   transform: scale(1);
+}
+.ReFormJS-button-list button:disabled {
+  filter: grayscale();
 }
 
 .ReFormJS-form-error:not(:empty) {
