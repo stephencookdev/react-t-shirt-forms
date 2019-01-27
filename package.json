@@ -4,7 +4,7 @@
   "description": "Simple forms, simple code.",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./demo/webpack.config.js --mode development"
+    "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development"
   },
   "keywords": [
     "form",

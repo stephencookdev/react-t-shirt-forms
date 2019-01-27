@@ -1,11 +1,24 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+
+const examples = ["basic", "custom-styling"];
 
 module.exports = {
-  entry: ["@babel/polyfill", __dirname + "/index.js"],
+  entry: examples.reduce(
+    (acc, cur) => ({
+      ...acc,
+      [cur]: [
+        "@babel/polyfill",
+        `${__dirname}/hmr.js`,
+        `${__dirname}/${cur}/index.js`
+      ]
+    }),
+    {}
+  ),
   output: {
     path: __dirname + "/dist",
     publicPath: "/",
-    filename: "bundle.js"
+    filename: "[name].js"
   },
   module: {
     rules: [
@@ -29,11 +42,23 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: __dirname + "/index.html"
-    })
-  ],
+  plugins: examples.reduce(
+    (acc, cur) =>
+      acc.concat(
+        new HtmlWebpackPlugin({
+          template: __dirname + "/index.html",
+          title: cur,
+          chunks: [cur],
+          filename: cur
+        })
+      ),
+    []
+  ),
+  resolve: {
+    alias: {
+      reformjs: path.resolve(__dirname, "../src")
+    }
+  },
   devServer: {
     contentBase: __dirname + "./dist"
   },

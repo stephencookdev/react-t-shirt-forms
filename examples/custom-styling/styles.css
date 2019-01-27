@@ -1,0 +1,117 @@
+.ReFormJS-form {
+  width: 600px;
+  padding: 24px 32px;
+  font-family: monospace;
+}
+
+.ReFormJS-form-item {
+  margin-bottom: 20px;
+  font: inherit;
+  position: relative;
+}
+.ReFormJS-form-item:last-of-type {
+  margin-bottom: 0;
+}
+.ReFormJS-form-item__error-text {
+  font-size: 12px;
+  font-family: inherit;
+  color: #e44;
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: top;
+  display: block;
+  margin-top: 4px;
+}
+
+.ReFormJS-text-input__label span,
+.ReFormJS-multichoice__label span {
+  font-size: 14px;
+  color: #777;
+}
+.ReFormJS-text-input__label input,
+.ReFormJS-multichoice__label select {
+  display: block;
+  width: 100%;
+  border: 0;
+  background-color: inherit;
+  color: #222;
+  border-bottom: 1px solid #ccc;
+  font: inherit;
+  font-size: 24px;
+  padding: 8px 0;
+  outline: none;
+}
+.ReFormJS-text-input__label input:hover,
+.ReFormJS-multichoice__label select:hover {
+  border-color: #bbb;
+}
+.ReFormJS-text-input__label input:focus,
+.ReFormJS-multichoice__label select:focus {
+  border-bottom-width: 2px;
+  padding-bottom: 7px;
+  border-color: #e94;
+  color: #e94;
+}
+.ReFormJS-form-item--error .ReFormJS-text-input__label input,
+.ReFormJS-form-item--error .ReFormJS-multichoice__label select {
+  border-bottom-width: 2px;
+  padding-bottom: 7px;
+  border-color: #e44;
+  color: #e44;
+}
+
+.ReFormJS-checkbox__label {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+}
+.ReFormJS-checkbox__label input {
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+.ReFormJS-checkbox__label span {
+  color: #222;
+}
+.ReFormJS-form-item--error .ReFormJS-checkbox__label {
+  border-bottom: 2px solid #e44;
+}
+
+.ReFormJS-button-list {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  margin-top: 32px;
+}
+.ReFormJS-button-list button {
+  font: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px 32px;
+  width: 100%;
+  background: #e94;
+  color: #eee;
+  border: 0;
+  transition: 0.3s ease all;
+}
+.ReFormJS-button-list button:not(:disabled):hover,
+.ReFormJS-button-list button:not(:disabled):focus {
+  background: #d83;
+  color: #fff;
+  transform: scale(1.02);
+}
+.ReFormJS-button-list button:not(:disabled):active {
+  transform: scale(1);
+}
+.ReFormJS-button-list button:disabled {
+  filter: grayscale();
+}
+
+.ReFormJS-form-error:not(:empty) {
+  color: #e44;
+  border: 2px solid #e44;
+  padding: 16px 20px;
+  font: inherit;
+  margin: 48px 0;
+}
