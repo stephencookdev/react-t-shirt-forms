@@ -62,7 +62,6 @@ const withFormDataState = X =>
     }
 
     createValidationSchema = cookedSchema => {
-      const { combineSchemaObject } = validationFuncs;
       const validations = Object.keys(cookedSchema).reduce(
         (acc, name) =>
           cookedSchema[name].validation
@@ -73,6 +72,12 @@ const withFormDataState = X =>
             : acc,
         {}
       );
+
+      // it's fine for no validations to exist, and we don't need any
+      // `validationFuncs` to exist in this case
+      if (!Object.keys(validations).length) return;
+
+      const { combineSchemaObject } = validationFuncs;
       return combineSchemaObject(validations);
     };
 
@@ -99,6 +104,10 @@ const withFormDataState = X =>
       );
 
     detectErrors = async (formState, { focusOnFields, addErrors }) => {
+      // if no validations have been added, then don't bother trying to detect
+      // any errors (and indeed, don't require `validationFuncs` to exist)
+      if (!this.validationSchema) return;
+
       const { getValidationError } = validationFuncs;
 
       const newErrors = await getValidationError(this.validationSchema, {

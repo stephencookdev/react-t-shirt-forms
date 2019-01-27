@@ -2,11 +2,21 @@ import { setSchemaDefaults } from "../schemaDefaults";
 import { deepMerge } from "../utils";
 
 export const validationFuncs = {
-  combineSchemaObject: () =>
-    console.error("`addValidation` has not been called!"),
+  combineSchemaObject: validations =>
+    console.error(
+      `\`addValidation\` has not been called, but validations have been specified for ${Object.keys(
+        validations
+      )
+        .map(x => `"${x}"`)
+        .join(", ")}! All validations are being ignored`
+    ),
 
   getValidationError: () =>
-    Promise.resolve(() => console.error("`addValidation` has not been called!"))
+    Promise.resolve(() =>
+      console.error(
+        "`addValidation` has not been called! All validations are being ignored"
+      )
+    )
 };
 
 export const addValidation = (validationObject, validationSupport) => {
