@@ -2,38 +2,78 @@
 
 The easiest way to get a feel for how to use ReFormJS is to take a look at some examples.
 
-## basic form
+## Basic Form
 
 [demo]() / [code](./basic)
 
-## form with custom styling
+## Form with Custom Styling
 
 [demo]() / [code](./custom-styling)
 
-## field validations
+ReFormJS is very modular. If you don't want the default stylings that come with the form, then you can just not `import` them, and they won't end up in your bundle!
+
+## Field Validations
 
 [demo]() / [code](./validations)
 
-## server errors
+Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
+
+ReFormJS is very modular, and by default comes without any validation code tied into it.
+
+However, it also allows you to very easily hook in any validation library you want! It also comes with out-of-the-box support for [yup](https://github.com/jquense/yup).
+
+## Server Errors
 
 [demo]() / [code](./sever-errors)
 
-## custom validation library
+Sometimes front-end validations cannot catch all possible issues.
+
+Sometimes the server returns errors that your form needs to convey to the user.
+
+ReFormJS lets you do this easily with `setFormErrors`.
+
+## Custom Validation Library
 
 [demo]() / [code](./custom-validation-library)
 
-## schema options (e.g. custom components)
+Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
+
+ReFormJS is very modular, and by default comes without any validation code tied into it.
+
+It also has a simple API to let you hook in any custom validation library you want to ReFormJS.
+
+## Schema Options (e.g. Custom Components)
 
 [demo]() / [code](./default-schema-options)
 
-## form options (e.g. `renderButtons` and `renderFormItem`)
+Often you don't want to use a plain text input, you want to use your own custom text input.
+
+Or, you want some default values for particular inputs.
+
+ReFormJS lets you do this by specifying `component` or `defaultValue` in the form schema. It also allows calling `setSchemaDefaults`, a global call that will change how _any_ ReFormJS form works.
+
+## Form Options (e.g. `renderButtons` and `renderFormItem`)
 
 [demo]() / [code](./form-options)
 
-## default form options
+Some forms have specific needs, that are different to the "normal" form that you have
+
+For this, ReFormJS lets you override its rendering methods, such as `renderButtons`, for a particular form.
+
+## Default Form Options
 
 [demo]() / [code](./default-form-options)
 
-## form exceptions
+ReFormJS lets override its rendering methods, such as `renderButtons`, for a particular form.
+
+But often, you might have a default way of rendering these items, that you want to be the default for all forms.
+
+ReFormJS lets you do this by calling `setOptionDefaults`, a global call that will change how _any_ ReFormJS form works.
+
+## Form Exceptions
 
 [demo]() / [code](./form-exceptions)
+
+Sometimes fields have specific rendering needs. A common example is "first name"/"last name", or "current password"/"new password" both being on the same line (rather than the default rendering method of 1 item per line)
+
+For this, ReFormJS provides a `formItemExceptions` form option.
