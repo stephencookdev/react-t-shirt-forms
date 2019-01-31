@@ -1,7 +1,17 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-const examples = ["basic", "custom-styling"];
+const examples = [
+  "basic",
+  "custom-styling",
+  "server-errors",
+  "validations",
+  "custom-validation-library",
+  "default-schema-options",
+  "default-form-options",
+  "form-options",
+  "form-exceptions"
+];
 
 module.exports = {
   entry: examples.reduce(

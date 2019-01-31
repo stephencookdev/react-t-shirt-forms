@@ -1,9 +1,8 @@
 import React from "react";
-import { renderFuncOrString } from "../utils";
 
 const TextInputComponent = ({ onChange, onBlur, value, label }) => (
   <label className="ReFormJS-component__label ReFormJS-text-input__label">
-    <span>{renderFuncOrString(label)}</span>
+    <span>{label}</span>
     <input
       type="text"
       value={value}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getOptionDefaults, setOptionDefaults } from "./optionDefaults";
 import { getSchemaDefaults, setSchemaDefaults } from "./schemaDefaults";
 import { addValidation, validationFuncs } from "./validations";
-import { omit, findFirstOverlap, mergeDeep } from "./utils";
+import { omit, findFirstOverlap, mergeDeep, renderFuncOrString } from "./utils";
 
 const getCookedSchema = schema => {
   const schemaDefaults = getSchemaDefaults();
@@ -241,6 +241,7 @@ const Form = ({
     const item = (
       <Component
         {...cookedSchema[name]}
+        label={renderFuncOrString(cookedSchema[name].label)}
         value={formState[name]}
         onChange={value => setFormState({ [name]: value })}
         onBlur={() => triggerBlur(name)}
