@@ -29,6 +29,10 @@
   margin-top: 4px;
 }
 
+.ReFormJS-component__required-star:after {
+  content: " *";
+  color: #e44;
+}
 .ReFormJS-text-input__label span,
 .ReFormJS-multichoice__label span {
   font-size: 14px;

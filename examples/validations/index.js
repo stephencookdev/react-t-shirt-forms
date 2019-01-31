@@ -18,14 +18,29 @@ const App = () => (
         initialValue: "Cat Woman",
         validation: yup.string().oneOf(["Batman", "Bruce Wayne"])
       },
+      description: {
+        type: "string",
+        label: "Description",
+        initialValue: "Shadowy protector",
+        // ReFormJS provides yup transforms for `required`, so your validation
+        // gets the information, and so does your component
+        required: false
+      },
       email: {
-        type: "email"
         // we don't specify a `validation` here, but `yupSupport` automatically
         // adds in basic email validation for any `type: "email"`
+        type: "email",
+        // here we indicate that we do want email to be a required field, but
+        // that the "required" validation should only kick on when the form is
+        // actually submitted.
+        // this is nice when trying to reduce the noise on your form, such as for
+        // a log-in form
+        required: { onSubmit: true }
       },
       password: {
         type: "password",
-        validation: yup.string().min(10)
+        validation: yup.string().min(10),
+        required: true
       },
       confirmPassword: {
         type: "password",

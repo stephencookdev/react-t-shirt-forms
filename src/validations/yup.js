@@ -24,6 +24,9 @@ export const yupSupport = yup => ({
 
   combineSchemaObject: validations => yup.object(validations),
 
+  requiredTransform: (validation, required) =>
+    required ? validation.required() : validation.notRequired().nullable(),
+
   getValidationError: (schema, formValues) => {
     return schema
       .validate(formValues, { strict: true, abortEarly: false })

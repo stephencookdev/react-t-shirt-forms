@@ -52,33 +52,28 @@ const withFormDataState = X =>
         errors,
         submitting: false
       };
-
-      this.validationSchema = this.createValidationSchema(cookedSchema);
     }
 
-    componentDidUpdate() {
-      const cookedSchema = getCookedSchema(this.props.schema);
-      this.validationSchema = this.createValidationSchema(cookedSchema);
-    }
+    createValidationSchema = (cookedSchema, submitting) => {
+      const { combineSchemaObject, requiredTransform } = validationFuncs;
 
-    createValidationSchema = cookedSchema => {
-      const validations = Object.keys(cookedSchema).reduce(
-        (acc, name) =>
-          cookedSchema[name].validation
-            ? {
-                ...acc,
-                [name]: cookedSchema[name].validation
-              }
-            : acc,
-        {}
-      );
+      const validationsMap = Object.keys(cookedSchema).reduce((acc, name) => {
+        const { validation, required } = cookedSchema[name];
+        if (!validation) return acc;
+
+        const isRequired =
+          required && required.onSubmit ? submitting : required;
+
+        return {
+          ...acc,
+          [name]: requiredTransform(validation, !!isRequired)
+        };
+      }, {});
 
       // it's fine for no validations to exist, and we don't need any
       // `validationFuncs` to exist in this case
-      if (!Object.keys(validations).length) return;
-
-      const { combineSchemaObject } = validationFuncs;
-      return combineSchemaObject(validations);
+      if (!Object.keys(validationsMap).length) return;
+      return combineSchemaObject(validationsMap);
     };
 
     setFormState = formState => {
@@ -95,22 +90,34 @@ const withFormDataState = X =>
     };
 
     handleStateChange = formState =>
-      this.detectErrors(formState, { focusOnFields: true, addErrors: false });
+      this.detectErrors(formState, {
+        focusOnFields: true,
+        addErrors: false,
+        submitting: false
+      });
 
     triggerBlur = name =>
       this.detectErrors(
         { [name]: this.state.formState[name] },
-        { focusOnFields: true, addErrors: true }
+        { focusOnFields: true, addErrors: true, submitting: false }
       );
 
-    detectErrors = async (formState, { focusOnFields, addErrors }) => {
+    detectErrors = async (
+      formState,
+      { focusOnFields, addErrors, submitting }
+    ) => {
+      const cookedSchema = getCookedSchema(this.props.schema);
+      const validationSchema = this.createValidationSchema(
+        cookedSchema,
+        submitting
+      );
       // if no validations have been added, then don't bother trying to detect
       // any errors (and indeed, don't require `validationFuncs` to exist)
-      if (!this.validationSchema) return;
+      if (!validationSchema) return;
 
       const { getValidationError } = validationFuncs;
 
-      const newErrors = await getValidationError(this.validationSchema, {
+      const newErrors = await getValidationError(validationSchema, {
         ...this.state.formState,
         ...formState
       });
@@ -178,7 +185,8 @@ const withFormDataState = X =>
 
       const errorsExist = await this.detectErrors(this.state.formState, {
         focusOnFields: false,
-        addErrors: true
+        addErrors: true,
+        submitting: true
       });
       if (!errorsExist) this.setState({ submitting: true });
 
@@ -238,11 +246,13 @@ const Form = ({
 
   const items = Object.keys(cookedSchema).reduce((acc, name) => {
     const Component = cookedSchema[name].component;
+    const required = !!cookedSchema[name].required;
     const item = (
       <Component
         {...cookedSchema[name]}
         label={renderFuncOrString(cookedSchema[name].label)}
         value={formState[name]}
+        required={required}
         onChange={value => setFormState({ [name]: value })}
         onBlur={() => triggerBlur(name)}
         formArgs={formArgs}

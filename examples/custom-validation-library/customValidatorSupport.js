@@ -13,6 +13,13 @@ export const customValidatorSupport = customValidator => ({
   // in the `yup` library for example, this is `yup.object`
   combineSchemaObject: validations => customValidator.object(validations),
 
+  // this transforms a field's validation object to be either required, or not
+  // required (`required` will be strictly `true`/`false`)
+  requiredTransform: (validation, required) => ({
+    ...validation,
+    required
+  }),
+
   getValidationError: async (schema, formValues) => {
     const errors = await schema.getErrors(formValues);
 

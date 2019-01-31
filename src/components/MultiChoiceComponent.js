@@ -1,9 +1,19 @@
 import React from "react";
 import i18n from "../i18n";
 
-const MultiChoiceComponent = ({ onChange, onBlur, value, label, choices }) => (
+const MultiChoiceComponent = ({
+  required,
+  onChange,
+  onBlur,
+  value,
+  label,
+  choices
+}) => (
   <label className="ReFormJS-component__label ReFormJS-multichoice__label">
-    <span>{label}</span>
+    <span>
+      {label}
+      {required && <span className="ReFormJS-component__required-star" />}
+    </span>
     <select
       value={value || ""}
       onChange={e => onChange(e.target.value)}

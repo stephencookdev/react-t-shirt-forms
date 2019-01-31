@@ -1,6 +1,6 @@
 import React from "react";
 
-const CheckboxComponent = ({ onChange, onBlur, value, label }) => (
+const CheckboxComponent = ({ required, onChange, onBlur, value, label }) => (
   <label className="ReFormJS-component__label ReFormJS-checkbox__label">
     <input
       type="checkbox"
@@ -8,7 +8,10 @@ const CheckboxComponent = ({ onChange, onBlur, value, label }) => (
       onChange={e => onChange(e.target.checked)}
       onBlur={e => onBlur(e)}
     />
-    <span>{label}</span>
+    <span>
+      {label}
+      {required && <span className="ReFormJS-component__required-star" />}
+    </span>
   </label>
 );
 

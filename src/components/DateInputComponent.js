@@ -1,8 +1,11 @@
 import React from "react";
 
-const DateInputComponent = ({ onChange, onBlur, value, label }) => (
+const DateInputComponent = ({ required, onChange, onBlur, value, label }) => (
   <label className="ReFormJS-component__label ReFormJS-date-input__label ReFormJS-text-input__label">
-    <span>{label}</span>
+    <span>
+      {label}
+      {required && <span className="ReFormJS-component__required-star" />}
+    </span>
     <input
       type="date"
       value={value ? value.toISOString().slice(0, 10) : ""}

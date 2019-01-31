@@ -19,9 +19,17 @@ export const validationFuncs = {
     )
 };
 
+const provideFuncs = (provider, support, funcNameList) =>
+  funcNameList.forEach(funcName => {
+    provider[funcName] = support[funcName];
+  });
+
 export const addValidation = (validationObject, validationSupport) => {
   const support = validationSupport(validationObject);
   setSchemaDefaults(support.schemaDefaults);
-  validationFuncs.combineSchemaObject = support.combineSchemaObject;
-  validationFuncs.getValidationError = support.getValidationError;
+  provideFuncs(validationFuncs, support, [
+    "combineSchemaObject",
+    "getValidationError",
+    "requiredTransform"
+  ]);
 };
