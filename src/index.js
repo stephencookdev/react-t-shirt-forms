@@ -245,6 +245,10 @@ const Form = ({
   };
 
   const items = Object.keys(cookedSchema).reduce((acc, name) => {
+    const showOnlyWhen = cookedSchema[name].showOnlyWhen || (() => true);
+    const shouldShow = showOnlyWhen({ formArgs });
+    if (!shouldShow) return acc;
+
     const Component = cookedSchema[name].component;
     const required = !!cookedSchema[name].required;
     const item = (
@@ -267,9 +271,7 @@ const Form = ({
           item,
           error: formErrors[name] || null
         }),
-        {
-          key: name
-        }
+        { key: name }
       )
     };
   }, {});

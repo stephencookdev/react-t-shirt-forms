@@ -77,3 +77,11 @@ ReFormJS lets you do this by calling `setOptionDefaults`, a global call that wil
 Sometimes fields have specific rendering needs. A common example is "first name"/"last name", or "current password"/"new password" both being on the same line (rather than the default rendering method of 1 item per line)
 
 For this, ReFormJS provides a `formItemExceptions` form option.
+
+## Omitting Fields Dynamically
+
+[demo]() / [code](./show-only-when)
+
+A common pattern is for certain form elements to be dynamic, and only appear in certain circumstances.
+
+ReFormJS gives you a `showOnlyWhen` property to describe this.

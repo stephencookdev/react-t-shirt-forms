@@ -10,7 +10,8 @@ const examples = [
   "default-schema-options",
   "default-form-options",
   "form-options",
-  "form-exceptions"
+  "form-exceptions",
+  "show-only-when"
 ];
 
 module.exports = {
