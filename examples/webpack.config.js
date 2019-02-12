@@ -11,7 +11,8 @@ const examples = [
   "default-form-options",
   "form-options",
   "form-exceptions",
-  "show-only-when"
+  "show-only-when",
+  "groups"
 ];
 
 module.exports = {

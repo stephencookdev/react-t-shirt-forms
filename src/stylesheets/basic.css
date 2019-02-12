@@ -5,6 +5,17 @@
   font-family: sans-serif;
 }
 
+.ReFormJS-form-item-group:not(:first-of-type) {
+  margin-top: 56px;
+}
+.ReFormJS-form-item-group__label {
+  font-size: 18px;
+  color: #49e;
+  display: block;
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
 .ReFormJS-form-item {
   margin-bottom: 20px;
   font: inherit;

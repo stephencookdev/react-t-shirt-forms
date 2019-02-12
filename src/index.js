@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { getOptionDefaults, setOptionDefaults } from "./optionDefaults";
 import { getSchemaDefaults, setSchemaDefaults } from "./schemaDefaults";
 import { addValidation, validationFuncs } from "./validations";
-import { omit, findFirstOverlap, mergeDeep, renderFuncOrString } from "./utils";
+import {
+  pick,
+  omit,
+  findFirstOverlap,
+  mergeDeep,
+  renderFuncOrString
+} from "./utils";
 
 const getCookedSchema = schema => {
   const schemaDefaults = getSchemaDefaults();
@@ -224,7 +230,9 @@ const Form = ({
     renderButtons,
     renderGenericError,
     renderFormItem,
+    renderFormItemGroup,
     formItemExceptions,
+    formItemGroups,
     handleSubmit,
     passThroughProps
   } = {
@@ -282,14 +290,36 @@ const Form = ({
       if (!firstKey) return acc;
 
       const keysButFirst = keys.filter(k => k !== firstKey);
-      acc[firstKey] = React.cloneElement(render({ items, formArgs }), {
-        key: firstKey
-      });
+      acc[firstKey] = React.cloneElement(
+        render({ items: pick(items, keys), formArgs }),
+        {
+          key: firstKey
+        }
+      );
 
       return omit(acc, keysButFirst);
     },
     items
   );
+
+  const itemsWithGroups = formItemGroups.reduce((acc, { keys, label }) => {
+    const firstKey = findFirstOverlap(acc, keys);
+    if (!firstKey) return acc;
+
+    const keysButFirst = keys.filter(k => k !== firstKey);
+    acc[firstKey] = React.cloneElement(
+      renderFormItemGroup({
+        items: pick(items, keys),
+        label: renderFuncOrString(label),
+        formArgs
+      }),
+      {
+        key: firstKey
+      }
+    );
+
+    return omit(acc, keysButFirst);
+  }, itemsWithExceptions);
 
   const buttons = renderButtons({ formArgs });
   const genericError = renderGenericError({ formArgs });
@@ -306,7 +336,7 @@ const Form = ({
         }
       }}
     >
-      {Object.values(itemsWithExceptions)}
+      {Object.values(itemsWithGroups)}
       {genericError}
       {buttons}
     </form>

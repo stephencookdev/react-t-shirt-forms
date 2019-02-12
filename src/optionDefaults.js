@@ -32,6 +32,15 @@ const optionDefaults = {
     </div>
   ),
 
+  renderFormItemGroup: ({ items, label }) => (
+    <div className="ReFormJS-form-item-group">
+      <span className="ReFormJS-form-item-group__label">{label}</span>
+      {Object.values(items)}
+    </div>
+  ),
+
+  formItemGroups: [],
+
   formItemExceptions: [],
 
   handleSubmit: () => console.error("`handleSubmit` not defined!"),

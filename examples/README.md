@@ -85,3 +85,11 @@ For this, ReFormJS provides a `formItemExceptions` form option.
 A common pattern is for certain form elements to be dynamic, and only appear in certain circumstances.
 
 ReFormJS gives you a `showOnlyWhen` property to describe this.
+
+## Groups
+
+[demo]() / [code](./groups)
+
+A common pattern in building forms is for the form itself to be split into sections.
+
+ReFormJS provides a `group` syntax to help you describe these sections.
