@@ -1,5 +1,4 @@
 import { setSchemaDefaults } from "../schemaDefaults";
-import { deepMerge } from "../utils";
 
 export const validationFuncs = {
   combineSchemaObject: validations =>

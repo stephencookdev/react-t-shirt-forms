@@ -28,7 +28,7 @@ module.exports = {
     {}
   ),
   output: {
-    path: __dirname + "/dist",
+    path: __dirname + "/dist/examples",
     publicPath: "/",
     filename: "[name].js"
   },
@@ -72,7 +72,7 @@ module.exports = {
     }
   },
   devServer: {
-    contentBase: __dirname + "./dist"
+    contentBase: __dirname + "./dist/examples"
   },
   devtool: "source-map"
 };

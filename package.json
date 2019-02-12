@@ -1,9 +1,11 @@
 {
   "name": "reformjs",
-  "version": "0.0.1",
+  "version": "0.0.1--rc1",
   "description": "Simple forms, simple code.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/esm/reformjs.production.js",
   "scripts": {
+    "prepublish": "rm -rf dist ; rollup -c ; cp src/distMain.js dist/index.js",
     "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development"
   },
   "keywords": [
@@ -30,6 +32,11 @@
     "prettier": "^1.15.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-uglify": "^6.0.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
