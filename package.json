@@ -6,7 +6,8 @@
   "module": "dist/esm/react-t-shirt-forms.production.js",
   "scripts": {
     "prepublish": "rm -rf dist && rollup -c && cp src/distMain.js dist/index.js && cp -r src/stylesheets dist/stylesheets",
-    "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development"
+    "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development",
+    "documentation-test": "alex **/*.md && write-good **/*.md"
   },
   "keywords": [
     "form",
@@ -34,6 +35,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.2.0",
+    "alex": "^7.1.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
@@ -49,6 +51,7 @@
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
+    "write-good": "^1.0.1",
     "yup": "^0.26.7"
   }
 }

@@ -10,7 +10,7 @@ The easiest way to get a feel for how to use T-Shirt Forms is to take a look at 
 
 [demo]() / [code](./custom-styling)
 
-T-Shirt Forms is very modular. If you don't want the default stylings that come with the form, then you can just not `import` them, and they won't end up in your bundle!
+T-Shirt Forms is modular. If you don't want the default stylings that come with the form, then you can not `import` them, and they won't end up in your bundle!
 
 ## Field Validations
 
@@ -18,9 +18,11 @@ T-Shirt Forms is very modular. If you don't want the default stylings that come 
 
 Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
 
-T-Shirt Forms is very modular, and by default comes without any validation code tied into it.
+T-Shirt Forms is modular, and by default comes without any validation code tied into it.
 
-However, it also allows you to very easily hook in any validation library you want! It also comes with out-of-the-box support for [yup](https://github.com/jquense/yup).
+<!-- alex ignore retext-profanities -->
+
+It also allows you to hook in any validation library you want! It also comes with out-of-the-box support for [yup](https://github.com/jquense/yup).
 
 ## Server Errors
 
@@ -30,7 +32,7 @@ Sometimes front-end validations cannot catch all possible issues.
 
 Sometimes the server returns errors that your form needs to convey to the user.
 
-T-Shirt Forms lets you do this easily with `setFormErrors`.
+T-Shirt Forms lets you do this with `setFormErrors`.
 
 ## Custom Validation Library
 
@@ -38,7 +40,9 @@ T-Shirt Forms lets you do this easily with `setFormErrors`.
 
 Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
 
-T-Shirt Forms is very modular, and by default comes without any validation code tied into it.
+T-Shirt Forms is modular, and by default comes without any validation code tied into it.
+
+<!-- alex ignore retext-profanities -->
 
 It also has a simple API to let you hook in any custom validation library you want to T-Shirt Forms.
 
@@ -80,9 +84,9 @@ For this, T-Shirt Forms provides a `formItemExceptions` form option.
 
 ## Omitting Fields Dynamically
 
-[demo]() / [code](./show-only-when)
+[demo]() / [code](./show-when)
 
-A common pattern is for certain form elements to be dynamic, and only appear in certain circumstances.
+A common pattern is for certain form elements to be dynamic, and disappear in certain circumstances.
 
 T-Shirt Forms gives you a `showOnlyWhen` property to describe this.
 
@@ -90,6 +94,6 @@ T-Shirt Forms gives you a `showOnlyWhen` property to describe this.
 
 [demo]() / [code](./groups)
 
-A common pattern in building forms is for the form itself to be split into sections.
+A common pattern in building forms is to split the form itself into sections.
 
 T-Shirt Forms provides a `group` syntax to help you describe these sections.
