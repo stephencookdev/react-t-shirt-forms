@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReFormJS, { setSchemaDefaults } from "reformjs";
+import TShirtForm, { setSchemaDefaults } from "react-t-shirt-forms";
 import BatmanTextInput from "./BatmanTextInput";
 import WonderWomanTextInput from "./WonderWomanTextInput";
-import "reformjs/stylesheets/basic.css";
+import "react-t-shirt-forms/stylesheets/basic.css";
 
-// this function call is _global_, so _all_ ReFormJS forms will inherit this
+// this function call is _global_, so _all_ T-Shirt Forms forms will inherit this
 // default schema.
 // it's recommended to call this function in your app root, before any components
 // get mounted
-// you can check out `schemaDefaults.js` to see what default schema values ReFormJS
+// you can check out `schemaDefaults.js` to see what default schema values T-Shirt Forms
 // uses under the hood, that you would be overriding
 setSchemaDefaults({
   type: {
@@ -23,7 +23,7 @@ setSchemaDefaults({
 });
 
 const App = () => (
-  <ReFormJS
+  <TShirtForm
     schema={{
       name: {
         type: "string",

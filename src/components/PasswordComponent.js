@@ -1,10 +1,10 @@
 import React from "react";
 
 const PasswordComponent = ({ required, onChange, onBlur, value, label }) => (
-  <label className="ReFormJS-component__label ReFormJS-text-input__label ReFormJS-password__label">
+  <label className="TShirtForm-component__label TShirtForm-text-input__label TShirtForm-password__label">
     <span>
       {label}
-      {required && <span className="ReFormJS-component__required-star" />}
+      {required && <span className="TShirtForm-component__required-star" />}
     </span>
     <input
       type="password"

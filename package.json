@@ -1,9 +1,9 @@
 {
-  "name": "reformjs",
+  "name": "react-t-shirt-forms",
   "version": "0.0.1--rc1",
   "description": "Simple forms, simple code.",
   "main": "dist/index.js",
-  "module": "dist/esm/reformjs.production.js",
+  "module": "dist/esm/react-t-shirt-forms.production.js",
   "scripts": {
     "prepublish": "rm -rf dist ; rollup -c ; cp src/distMain.js dist/index.js",
     "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development"

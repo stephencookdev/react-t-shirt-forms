@@ -9,10 +9,10 @@ const MultiChoiceComponent = ({
   label,
   choices
 }) => (
-  <label className="ReFormJS-component__label ReFormJS-multichoice__label">
+  <label className="TShirtForm-component__label TShirtForm-multichoice__label">
     <span>
       {label}
-      {required && <span className="ReFormJS-component__required-star" />}
+      {required && <span className="TShirtForm-component__required-star" />}
     </span>
     <select
       value={value || ""}

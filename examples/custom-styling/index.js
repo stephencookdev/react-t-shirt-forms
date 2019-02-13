@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReFormJS from "reformjs";
+import TShirtForm from "react-t-shirt-forms";
 import "./styles.css";
 
 const App = () => (
-  <ReFormJS
+  <TShirtForm
     schema={{
       name: {
         type: "string",

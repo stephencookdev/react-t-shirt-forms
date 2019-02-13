@@ -1,6 +1,6 @@
 # Examples
 
-The easiest way to get a feel for how to use ReFormJS is to take a look at some examples.
+The easiest way to get a feel for how to use T-Shirt Forms is to take a look at some examples.
 
 ## Basic Form
 
@@ -10,7 +10,7 @@ The easiest way to get a feel for how to use ReFormJS is to take a look at some 
 
 [demo]() / [code](./custom-styling)
 
-ReFormJS is very modular. If you don't want the default stylings that come with the form, then you can just not `import` them, and they won't end up in your bundle!
+T-Shirt Forms is very modular. If you don't want the default stylings that come with the form, then you can just not `import` them, and they won't end up in your bundle!
 
 ## Field Validations
 
@@ -18,7 +18,7 @@ ReFormJS is very modular. If you don't want the default stylings that come with 
 
 Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
 
-ReFormJS is very modular, and by default comes without any validation code tied into it.
+T-Shirt Forms is very modular, and by default comes without any validation code tied into it.
 
 However, it also allows you to very easily hook in any validation library you want! It also comes with out-of-the-box support for [yup](https://github.com/jquense/yup).
 
@@ -30,7 +30,7 @@ Sometimes front-end validations cannot catch all possible issues.
 
 Sometimes the server returns errors that your form needs to convey to the user.
 
-ReFormJS lets you do this easily with `setFormErrors`.
+T-Shirt Forms lets you do this easily with `setFormErrors`.
 
 ## Custom Validation Library
 
@@ -38,9 +38,9 @@ ReFormJS lets you do this easily with `setFormErrors`.
 
 Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
 
-ReFormJS is very modular, and by default comes without any validation code tied into it.
+T-Shirt Forms is very modular, and by default comes without any validation code tied into it.
 
-It also has a simple API to let you hook in any custom validation library you want to ReFormJS.
+It also has a simple API to let you hook in any custom validation library you want to T-Shirt Forms.
 
 ## Schema Options (e.g. Custom Components)
 
@@ -50,7 +50,7 @@ Often you don't want to use a plain text input, you want to use your own custom 
 
 Or, you want some default values for particular inputs.
 
-ReFormJS lets you do this by specifying `component` or `defaultValue` in the form schema. It also allows calling `setSchemaDefaults`, a global call that will change how _any_ ReFormJS form works.
+T-Shirt Forms lets you do this by specifying `component` or `defaultValue` in the form schema. It also allows calling `setSchemaDefaults`, a global call that will change how _any_ T-Shirt Forms form works.
 
 ## Form Options (e.g. `renderButtons` and `renderFormItem`)
 
@@ -58,17 +58,17 @@ ReFormJS lets you do this by specifying `component` or `defaultValue` in the for
 
 Some forms have specific needs, that are different to the "normal" form that you have
 
-For this, ReFormJS lets you override its rendering methods, such as `renderButtons`, for a particular form.
+For this, T-Shirt Forms lets you override its rendering methods, such as `renderButtons`, for a particular form.
 
 ## Default Form Options
 
 [demo]() / [code](./default-form-options)
 
-ReFormJS lets override its rendering methods, such as `renderButtons`, for a particular form.
+T-Shirt Forms lets override its rendering methods, such as `renderButtons`, for a particular form.
 
 But often, you might have a default way of rendering these items, that you want to be the default for all forms.
 
-ReFormJS lets you do this by calling `setOptionDefaults`, a global call that will change how _any_ ReFormJS form works.
+T-Shirt Forms lets you do this by calling `setOptionDefaults`, a global call that will change how _any_ T-Shirt Forms form works.
 
 ## Form Exceptions
 
@@ -76,7 +76,7 @@ ReFormJS lets you do this by calling `setOptionDefaults`, a global call that wil
 
 Sometimes fields have specific rendering needs. A common example is "first name"/"last name", or "current password"/"new password" both being on the same line (rather than the default rendering method of 1 item per line)
 
-For this, ReFormJS provides a `formItemExceptions` form option.
+For this, T-Shirt Forms provides a `formItemExceptions` form option.
 
 ## Omitting Fields Dynamically
 
@@ -84,7 +84,7 @@ For this, ReFormJS provides a `formItemExceptions` form option.
 
 A common pattern is for certain form elements to be dynamic, and only appear in certain circumstances.
 
-ReFormJS gives you a `showOnlyWhen` property to describe this.
+T-Shirt Forms gives you a `showOnlyWhen` property to describe this.
 
 ## Groups
 
@@ -92,4 +92,4 @@ ReFormJS gives you a `showOnlyWhen` property to describe this.
 
 A common pattern in building forms is for the form itself to be split into sections.
 
-ReFormJS provides a `group` syntax to help you describe these sections.
+T-Shirt Forms provides a `group` syntax to help you describe these sections.

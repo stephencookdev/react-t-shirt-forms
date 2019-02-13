@@ -6,7 +6,7 @@ const revealString =
 const batmanReveal = str => revealString.substring(0, str.length);
 
 const BatmanTextInput = ({ onChange, onBlur, value, label }) => (
-  <label className="ReFormJS-component__label ReFormJS-text-input__label">
+  <label className="TShirtForm-component__label TShirtForm-text-input__label">
     <span>
       {"Batman: "}
       {label}

@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReFormJS, { setOptionDefaults } from "reformjs";
-import "reformjs/stylesheets/basic.css";
+import TShirtForm, { setOptionDefaults } from "react-t-shirt-forms";
+import "react-t-shirt-forms/stylesheets/basic.css";
 
-// this function call is _global_, so _all_ ReFormJS forms will inherit this
+// this function call is _global_, so _all_ T-Shirt Forms forms will inherit this
 // default schema.
 // it's recommended to call this function in your app root, before any components
 // get mounted
-// you can check out `optionDefaults.js` to see what form options ReFormJS
+// you can check out `optionDefaults.js` to see what form options T-Shirt Forms
 // uses under the hood, that you would be overriding
 setOptionDefaults({
   renderButtons: ({ formArgs: { submitting } }) => (
@@ -23,7 +23,7 @@ setOptionDefaults({
 });
 
 const App = () => (
-  <ReFormJS
+  <TShirtForm
     schema={{
       name: {
         type: "string",

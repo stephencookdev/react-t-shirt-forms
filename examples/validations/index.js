@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as yup from "yup";
-import ReFormJS, { addValidation } from "reformjs";
-import { yupSupport } from "reformjs/validations/yup";
-import "reformjs/stylesheets/basic.css";
+import TShirtForm, { addValidation } from "react-t-shirt-forms";
+import { yupSupport } from "react-t-shirt-forms/validations/yup";
+import "react-t-shirt-forms/stylesheets/basic.css";
 
-// this tells ReFormJS to use `yup` for any validations
+// this tells T-Shirt Forms to use `yup` for any validations
 // it also adds default validations for common fields
 addValidation(yup, yupSupport);
 
 const App = () => (
-  <ReFormJS
+  <TShirtForm
     schema={{
       name: {
         type: "string",
@@ -22,7 +22,7 @@ const App = () => (
         type: "string",
         label: "Description",
         initialValue: "Shadowy protector",
-        // ReFormJS provides yup transforms for `required`, so your validation
+        // T-Shirt Forms provides yup transforms for `required`, so your validation
         // gets the information, and so does your component
         required: false
       },

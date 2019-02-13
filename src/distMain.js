@@ -1,7 +1,7 @@
 "use strict";
 
 if (process.env.NODE_ENV === "production") {
-  module.exports = require("./cjs/reformjs.production.js");
+  module.exports = require("./cjs/react-t-shirt-forms.production.js");
 } else {
-  module.exports = require("./cjs/reformjs.development.js");
+  module.exports = require("./cjs/react-t-shirt-forms.development.js");
 }

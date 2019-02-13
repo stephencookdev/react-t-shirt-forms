@@ -6,15 +6,15 @@ const optionDefaults = {
   schema: {},
 
   renderButtons: ({ formArgs: { submitting } }) => (
-    <div className="ReFormJS-button-list">
+    <div className="TShirtForm-button-list">
       <button disabled={submitting}>{i18n.submit}</button>
     </div>
   ),
 
   renderGenericError: ({ formArgs: { formErrors } }) => (
-    <div className="ReFormJS-form-error">
+    <div className="TShirtForm-form-error">
       {formErrors.__generic ? (
-        <span className="ReFormJS-form-error__error-text">
+        <span className="TShirtForm-form-error__error-text">
           {formErrors.__generic}
         </span>
       ) : null}
@@ -24,17 +24,17 @@ const optionDefaults = {
   renderFormItem: ({ item, error }) => (
     <div
       className={
-        "ReFormJS-form-item" + (error ? " ReFormJS-form-item--error" : "")
+        "TShirtForm-form-item" + (error ? " TShirtForm-form-item--error" : "")
       }
     >
       {item}
-      <span className="ReFormJS-form-item__error-text">{error || null}</span>
+      <span className="TShirtForm-form-item__error-text">{error || null}</span>
     </div>
   ),
 
   renderFormItemGroup: ({ items, label }) => (
-    <div className="ReFormJS-form-item-group">
-      <span className="ReFormJS-form-item-group__label">{label}</span>
+    <div className="TShirtForm-form-item-group">
+      <span className="TShirtForm-form-item-group__label">{label}</span>
       {Object.values(items)}
     </div>
   ),

@@ -326,7 +326,7 @@ const Form = ({
 
   return (
     <form
-      className="ReFormJS-form"
+      className="TShirtForm-form"
       onSubmit={async e => {
         e.preventDefault();
         const canSubmit = await setSubmittingState(true);

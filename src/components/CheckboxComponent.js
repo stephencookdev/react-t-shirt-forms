@@ -1,7 +1,7 @@
 import React from "react";
 
 const CheckboxComponent = ({ required, onChange, onBlur, value, label }) => (
-  <label className="ReFormJS-component__label ReFormJS-checkbox__label">
+  <label className="TShirtForm-component__label TShirtForm-checkbox__label">
     <input
       type="checkbox"
       checked={value}
@@ -10,7 +10,7 @@ const CheckboxComponent = ({ required, onChange, onBlur, value, label }) => (
     />
     <span>
       {label}
-      {required && <span className="ReFormJS-component__required-star" />}
+      {required && <span className="TShirtForm-component__required-star" />}
     </span>
   </label>
 );

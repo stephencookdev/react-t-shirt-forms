@@ -68,7 +68,7 @@ module.exports = {
   ),
   resolve: {
     alias: {
-      reformjs: path.resolve(__dirname, "../src")
+      "react-t-shirt-forms": path.resolve(__dirname, "../src")
     }
   },
   devServer: {

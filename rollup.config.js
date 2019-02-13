@@ -15,8 +15,8 @@ const baseConfig = ({ format, production }) => ({
   input: "src/index.js",
   output: {
     format,
-    name: "ReFormJS",
-    file: `dist/${format}/reformjs.${
+    name: "TShirtForm",
+    file: `dist/${format}/react-t-shirt-forms.${
       production ? "production" : "development"
     }.js`,
     exports: "named",

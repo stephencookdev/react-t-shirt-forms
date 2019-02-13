@@ -1,14 +1,14 @@
-.ReFormJS-form {
+.TShirtForm-form {
   width: 400px;
   box-shadow: 0 0 20px #ccc;
   padding: 24px 32px;
   font-family: sans-serif;
 }
 
-.ReFormJS-form-item-group:not(:first-of-type) {
+.TShirtForm-form-item-group:not(:first-of-type) {
   margin-top: 56px;
 }
-.ReFormJS-form-item-group__label {
+.TShirtForm-form-item-group__label {
   font-size: 18px;
   color: #49e;
   display: block;
@@ -16,19 +16,19 @@
   font-style: italic;
 }
 
-.ReFormJS-form-item {
+.TShirtForm-form-item {
   margin-bottom: 20px;
   font: inherit;
   position: relative;
 }
-.ReFormJS-form-item:last-of-type {
+.TShirtForm-form-item:last-of-type {
   margin-bottom: 0;
 }
-.ReFormJS-form-item__error-text:empty {
+.TShirtForm-form-item__error-text:empty {
   transform: scaleY(0.5);
   opacity: 0;
 }
-.ReFormJS-form-item__error-text {
+.TShirtForm-form-item__error-text {
   transition: 0.2s ease all;
   font-size: 12px;
   font-family: inherit;
@@ -40,17 +40,17 @@
   margin-top: 4px;
 }
 
-.ReFormJS-component__required-star:after {
+.TShirtForm-component__required-star:after {
   content: " *";
   color: #e44;
 }
-.ReFormJS-text-input__label span,
-.ReFormJS-multichoice__label span {
+.TShirtForm-text-input__label span,
+.TShirtForm-multichoice__label span {
   font-size: 14px;
   color: #777;
 }
-.ReFormJS-text-input__label input,
-.ReFormJS-multichoice__label select {
+.TShirtForm-text-input__label input,
+.TShirtForm-multichoice__label select {
   display: block;
   width: 100%;
   border: 0;
@@ -63,50 +63,50 @@
   outline: none;
   transition: 0.2s ease all;
 }
-.ReFormJS-text-input__label input:hover,
-.ReFormJS-multichoice__label select:hover {
+.TShirtForm-text-input__label input:hover,
+.TShirtForm-multichoice__label select:hover {
   border-color: #bbb;
 }
-.ReFormJS-text-input__label input:focus,
-.ReFormJS-multichoice__label select:focus {
+.TShirtForm-text-input__label input:focus,
+.TShirtForm-multichoice__label select:focus {
   border-bottom-width: 2px;
   padding-bottom: 7px;
   border-color: #49e;
   color: #49e;
 }
-.ReFormJS-form-item--error .ReFormJS-text-input__label input,
-.ReFormJS-form-item--error .ReFormJS-multichoice__label select {
+.TShirtForm-form-item--error .TShirtForm-text-input__label input,
+.TShirtForm-form-item--error .TShirtForm-multichoice__label select {
   border-bottom-width: 2px;
   padding-bottom: 7px;
   border-color: #e44;
   color: #e44;
 }
 
-.ReFormJS-checkbox__label {
+.TShirtForm-checkbox__label {
   display: flex;
   align-items: center;
   padding: 16px 0;
 }
-.ReFormJS-checkbox__label input {
+.TShirtForm-checkbox__label input {
   width: 20px;
   height: 20px;
   margin-right: 16px;
   flex-shrink: 0;
 }
-.ReFormJS-checkbox__label span {
+.TShirtForm-checkbox__label span {
   color: #222;
 }
-.ReFormJS-form-item--error .ReFormJS-checkbox__label {
+.TShirtForm-form-item--error .TShirtForm-checkbox__label {
   border-bottom: 2px solid #e44;
 }
 
-.ReFormJS-button-list {
+.TShirtForm-button-list {
   display: flex;
   align-items: center;
   justify-content: stretch;
   margin-top: 32px;
 }
-.ReFormJS-button-list button {
+.TShirtForm-button-list button {
   font: inherit;
   font-size: 20px;
   font-weight: 500;
@@ -117,20 +117,20 @@
   border: 0;
   transition: 0.3s ease all;
 }
-.ReFormJS-button-list button:not(:disabled):hover,
-.ReFormJS-button-list button:not(:disabled):focus {
+.TShirtForm-button-list button:not(:disabled):hover,
+.TShirtForm-button-list button:not(:disabled):focus {
   background: #38d;
   color: #fff;
   transform: scale(1.015);
 }
-.ReFormJS-button-list button:not(:disabled):active {
+.TShirtForm-button-list button:not(:disabled):active {
   transform: scale(1);
 }
-.ReFormJS-button-list button:disabled {
+.TShirtForm-button-list button:disabled {
   filter: grayscale();
 }
 
-.ReFormJS-form-error:not(:empty) {
+.TShirtForm-form-error:not(:empty) {
   color: #e44;
   border: 2px solid #e44;
   padding: 16px 20px;
