@@ -1,7 +1,9 @@
 .gitignore
-examples
-src
 .cache
 .git
+.babelrc
+rollup.config.js
+examples
+src
 dist/examples
 node_modules

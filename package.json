@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "module": "dist/esm/react-t-shirt-forms.production.js",
   "scripts": {
-    "prepublish": "rm -rf dist ; rollup -c ; cp src/distMain.js dist/index.js",
+    "prepublish": "rm -rf dist && rollup -c && cp src/distMain.js dist/index.js && cp -r src/stylesheets dist/stylesheets",
     "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development"
   },
   "keywords": [
@@ -14,6 +14,14 @@
   ],
   "author": "Stephen Cook",
   "license": "MIT",
+  "homepage": "https://github.com/stephencookdev/react-t-shirt-forms",
+  "bugs": {
+    "url": "https://github.com/stephencookdev/react-t-shirt-forms/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stephencookdev/react-t-shirt-forms"
+  },
   "dependencies": {},
   "peerDependencies": {
     "react": "^0.14 || ^15 || ^16"
