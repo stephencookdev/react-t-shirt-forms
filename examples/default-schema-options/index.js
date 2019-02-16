@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import TShirtForm, { setSchemaDefaults } from "react-t-shirt-forms";
 import BatmanTextInput from "./BatmanTextInput";
 import WonderWomanTextInput from "./WonderWomanTextInput";
-import "react-t-shirt-forms/dist/stylesheets/basic.css";
+import "react-t-shirt-forms/dist/stylesheets/basic.min.css";
 
 // this function call is _global_, so _all_ T-Shirt Forms forms will inherit this
 // default schema.

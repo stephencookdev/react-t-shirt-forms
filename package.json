@@ -8,7 +8,7 @@
     "*.css"
   ],
   "scripts": {
-    "prepublish": "rm -rf dist && rollup -c && cp src/distMain.js dist/cjs/index.js && cp src/distMain.js dist/esm/index.js && cp -r src/stylesheets dist/stylesheets",
+    "prepublish": "./buildDist.sh",
     "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development",
     "documentation-test": "alex **/*.md && write-good **/*.md"
   },
@@ -40,6 +40,7 @@
     "@babel/runtime": "^7.2.0",
     "alex": "^7.1.0",
     "babel-loader": "^8.0.5",
+    "clean-css-cli": "^4.2.1",
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "prettier": "^1.15.3",

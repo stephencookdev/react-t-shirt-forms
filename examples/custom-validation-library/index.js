@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import TShirtForm, { addValidation } from "react-t-shirt-forms";
 import * as customValidator from "./customValidator";
 import { customValidatorSupport } from "./customValidatorSupport";
-import "react-t-shirt-forms/dist/stylesheets/basic.css";
+import "react-t-shirt-forms/dist/stylesheets/basic.min.css";
 
 // this tells T-Shirt Forms to use `customValidator` for any validations
 // it also adds default validations for common fields
