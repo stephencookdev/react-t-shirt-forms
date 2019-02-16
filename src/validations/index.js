@@ -1,5 +1,7 @@
 import { setSchemaDefaults } from "../schemaDefaults";
 
+export { yupSupport } from "./yup";
+
 export const validationFuncs = {
   combineSchemaObject: validations =>
     console.error(

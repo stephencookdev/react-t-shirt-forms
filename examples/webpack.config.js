@@ -68,6 +68,10 @@ module.exports = {
   ),
   resolve: {
     alias: {
+      "react-t-shirt-forms/dist/stylesheets/basic.min.css": path.resolve(
+        __dirname,
+        "../src/stylesheets/basic.css"
+      ),
       "react-t-shirt-forms": path.resolve(__dirname, "../src")
     }
   },

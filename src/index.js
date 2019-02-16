@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getOptionDefaults, setOptionDefaults } from "./optionDefaults";
 import { getSchemaDefaults, setSchemaDefaults } from "./schemaDefaults";
-import { addValidation, validationFuncs } from "./validations";
+import { addValidation, validationFuncs, yupSupport } from "./validations";
 import {
   pick,
   omit,
@@ -343,5 +343,5 @@ const Form = ({
   );
 };
 
-export { addValidation, setOptionDefaults, setSchemaDefaults };
+export { addValidation, setOptionDefaults, setSchemaDefaults, yupSupport };
 export default withFormDataState(Form);

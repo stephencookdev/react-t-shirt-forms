@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as yup from "yup";
-import TShirtForm, { addValidation } from "react-t-shirt-forms";
-import { yupSupport } from "react-t-shirt-forms/validations/yup";
+import TShirtForm, { addValidation, yupSupport } from "react-t-shirt-forms";
 import "react-t-shirt-forms/dist/stylesheets/basic.min.css";
 
 // this tells T-Shirt Forms to use `yup` for any validations
