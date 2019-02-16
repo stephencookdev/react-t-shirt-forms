@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import TShirtForm from "react-t-shirt-forms";
-import "react-t-shirt-forms/stylesheets/basic.css";
+import "react-t-shirt-forms/dist/stylesheets/basic.css";
 
 const App = () => (
   <TShirtForm

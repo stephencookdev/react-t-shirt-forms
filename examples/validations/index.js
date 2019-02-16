@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import * as yup from "yup";
 import TShirtForm, { addValidation } from "react-t-shirt-forms";
 import { yupSupport } from "react-t-shirt-forms/validations/yup";
-import "react-t-shirt-forms/stylesheets/basic.css";
+import "react-t-shirt-forms/dist/stylesheets/basic.css";
 
 // this tells T-Shirt Forms to use `yup` for any validations
 // it also adds default validations for common fields

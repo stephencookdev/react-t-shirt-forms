@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import TShirtForm, { setOptionDefaults } from "react-t-shirt-forms";
-import "react-t-shirt-forms/stylesheets/basic.css";
+import "react-t-shirt-forms/dist/stylesheets/basic.css";
 
 // this function call is _global_, so _all_ T-Shirt Forms forms will inherit this
 // default schema.
