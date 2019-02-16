@@ -5,8 +5,8 @@ STYLESHEETS_DIST="$DIST/stylesheets"
 
 rm -rf $DIST
 
-# rollup -c
-mkdir -p "$DIST/cjs" "$DIST/esm"
+rollup -c
+
 cp "$SRC/distMain.js" "$DIST/cjs/index.js"
 cp "$SRC/distMain.js" "$DIST/esm/index.js"
 

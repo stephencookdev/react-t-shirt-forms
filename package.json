@@ -1,6 +1,6 @@
 {
   "name": "react-t-shirt-forms",
-  "version": "0.0.1--rc2",
+  "version": "0.0.1--rc3",
   "description": "Simple forms, simple code.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
