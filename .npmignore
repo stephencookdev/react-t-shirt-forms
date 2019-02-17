@@ -7,3 +7,4 @@ examples
 src
 dist/examples
 node_modules
+size-tester

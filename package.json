@@ -10,7 +10,8 @@
   "scripts": {
     "prepublish": "./buildDist.sh",
     "dev": "webpack-dev-server --config ./examples/webpack.config.js --mode development",
-    "documentation-test": "alex **/*.md && write-good **/*.md"
+    "documentation-test": "alex **/*.md && write-good **/*.md",
+    "size-test": "./buildDist.sh && ./sizeTest.sh"
   },
   "keywords": [
     "form",
@@ -41,6 +42,7 @@
     "alex": "^7.1.0",
     "babel-loader": "^8.0.5",
     "clean-css-cli": "^4.2.1",
+    "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "prettier": "^1.15.3",
