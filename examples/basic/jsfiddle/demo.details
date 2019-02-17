@@ -10,4 +10,5 @@
    - https://unpkg.com/react-t-shirt-forms@0.0.1--rc4/dist/stylesheets/basic.css
  load_type: d
  js_wrap: b
+ panel_js: 3
 ...

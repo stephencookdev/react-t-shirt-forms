@@ -4,7 +4,7 @@ The easiest way to get a feel for how to use T-Shirt Forms is to take a look at 
 
 ## Basic Form
 
-[demo]() / [code](./basic)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/basic/jsfiddle) / [code](./basic)
 
 ## Form with Custom Styling
 
