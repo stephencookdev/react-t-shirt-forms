@@ -1,26 +1,44 @@
-<!-- This is just used in order to get a JSFiddle link automatically generated, to show off the example -->
+<!--
+  This HTML file used for demoing the TShirt Forms example in JSFiddle.
+  Check out all of the examples on GitHub.
+
+  https://github.com/stephencookdev/react-t-shirt-forms/tree/master/examples
+-->
 
 <div id="app"></div>
 
-<script type="text/javascript">
-  // We need to hack the `require` function, since our example code uses it, but
-  // JSFiddle is not set up to use `require`, and just uses UMD packages
+<script type="text/babel">
+  import React from "react";
+  import ReactDOM from "react-dom";
+  import TShirtForm from "react-t-shirt-forms";
+  import "react-t-shirt-forms/dist/stylesheets/basic.min.css";
 
-  function require(x) {
-    if (x === "react-t-shirt-forms/dist/stylesheets/basic.min.css") {
-      return;
-    }
+  const App = () => (
+    <TShirtForm
+      schema={{
+        name: {
+          type: "string",
+          label: "Name",
+          initialValue: "Bruce Wayne"
+        },
+        email: {
+          type: "email"
+        },
+        dob: {
+          type: "date",
+          label: "Date of birth"
+        }
+      }}
+      handleSubmit={async ({ formArgs }) => {
+        // `formArgs.formState` contains the state of our form
+        // we'll wait a bit, just to pretend we're sending it to a back-end
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
-    var reqMap = {
-      react: React,
-      "react-dom": ReactDOM,
-      "react-t-shirt-forms": TShirtForm
-    };
-    return reqMap[x];
-  }
+        // and then we'll just log out the form values to the console
+        console.log(JSON.stringify(formArgs, null, 2));
+      }}
+    />
+  );
+
+  ReactDOM.render(<App />, document.getElementById("app"));
 </script>
-
-<script
-  type="text/babel"
-  src="https://raw.githubusercontent.com/stephencookdev/react-t-shirt-forms/master/examples/basic/index.js"
-></script>
