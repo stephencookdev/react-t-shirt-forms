@@ -1,0 +1,12 @@
+/*
+ * This isn't needed at all, but we just center everything to make the demo
+ * easier to see in an empty page
+ */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

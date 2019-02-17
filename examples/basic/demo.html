@@ -7,6 +7,25 @@
 
 <div id="app"></div>
 
+<script type="text/javascript">
+  // We need to hack the `require` function, since our example code uses it, but
+  // JSFiddle is not set up to use `require`, and just uses UMD packages
+  // The actual TShirt Forms code is inside `<script type="text/babel">` tags
+
+  window.require = function require(x) {
+    if (x === "react-t-shirt-forms/dist/stylesheets/basic.min.css") {
+      return;
+    }
+
+    var reqMap = {
+      react: React,
+      "react-dom": ReactDOM,
+      "react-t-shirt-forms": TShirtForm
+    };
+    return reqMap[x];
+  };
+</script>
+
 <script type="text/babel">
   import React from "react";
   import ReactDOM from "react-dom";
