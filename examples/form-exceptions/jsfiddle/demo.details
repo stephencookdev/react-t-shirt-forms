@@ -2,11 +2,10 @@
  name: TShirt Forms - Form Exceptions
  description: https://github.com/stephencookdev/react-t-shirt-forms
  resources:
-   - https://unpkg.com/babel-polyfill@6/dist/polyfill.js
    - https://unpkg.com/react@16/umd/react.development.js
    - https://unpkg.com/react-dom@16/umd/react-dom.development.js
-   - https://unpkg.com/react-t-shirt-forms@0.0.1--rc4/dist/umd/react-t-shirt-forms.development.js
-   - https://unpkg.com/react-t-shirt-forms@0.0.1--rc4/dist/stylesheets/basic.css
+   - https://unpkg.com/react-t-shirt-forms@0.0.1--rc5/dist/umd/react-t-shirt-forms.development.js
+   - https://unpkg.com/react-t-shirt-forms@0.0.1--rc5/dist/stylesheets/basic.css
  load_type: d
  js_wrap: b
  panel_js: 3
