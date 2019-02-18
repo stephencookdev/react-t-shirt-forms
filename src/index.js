@@ -60,15 +60,21 @@ const withFormDataState = X =>
       };
     }
 
-    createValidationSchema = (cookedSchema, submitting) => {
+    createValidationSchema = (cookedSchema, submitting, errors) => {
       const { combineSchemaObject, requiredTransform } = validationFuncs;
 
       const validationsMap = Object.keys(cookedSchema).reduce((acc, name) => {
         const { validation, required } = cookedSchema[name];
         if (!validation) return acc;
 
+        // If a field is required `onSubmit`, it should also be considered required
+        // if that field _currently_ has an error.
+        // Otherwise, it will appear to be "fixed" on any form update, and an
+        // onSubmit error would disappear when anything else in the form changes
+        const onSubmitIsRequired = () => submitting || !!errors[name].message;
+
         const isRequired =
-          required && required.onSubmit ? submitting : required;
+          required && required.onSubmit ? onSubmitIsRequired() : required;
 
         return {
           ...acc,
@@ -115,7 +121,8 @@ const withFormDataState = X =>
       const cookedSchema = getCookedSchema(this.props.schema);
       const validationSchema = this.createValidationSchema(
         cookedSchema,
-        submitting
+        submitting,
+        this.state.errors
       );
       // if no validations have been added, then don't bother trying to detect
       // any errors (and indeed, don't require `validationFuncs` to exist)
@@ -128,13 +135,6 @@ const withFormDataState = X =>
         ...formState
       });
       const newErrorNames = Object.keys(newErrors || {});
-      const currentErrorNames = Object.keys(this.state.errors).filter(
-        name => this.state.errors[name].message
-      );
-
-      const fixedErrorNames = currentErrorNames.filter(
-        name => !newErrorNames.includes(name)
-      );
       const toAddErrorNames =
         addErrors && !focusOnFields
           ? newErrorNames
