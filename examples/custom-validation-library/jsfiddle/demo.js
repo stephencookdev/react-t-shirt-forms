@@ -10,33 +10,34 @@
  * customValidator.js
  *
  */
-const email = () => ({
+const customValidator = {};
+customValidator.email = () => ({
   validate: fieldValue => /.+@.+\..+/.test(fieldValue),
   errorMessage: fieldName => `${fieldName} must be a valid email`,
   required: false
 });
 
-const oneOf = possibleVals => ({
+customValidator.oneOf = possibleVals => ({
   validate: fieldValue => possibleVals.includes(fieldValue),
   errorMessage: fieldName =>
     `${fieldName} must be one of these values: ${possibleVals.join(", ")}`,
   required: false
 });
 
-const minLength = n => ({
+customValidator.minLength = n => ({
   validate: fieldValue => fieldValue.toString().length >= n,
   errorMessage: fieldName =>
     `${fieldName} must be at least ${n} characters long`,
   required: false
 });
 
-const matchOtherField = fieldToMatch => ({
+customValidator.matchOtherField = fieldToMatch => ({
   validate: (fieldValue, formValues) => formValues[fieldToMatch] === fieldValue,
   errorMessage: fieldName => `${fieldName} must match ${fieldToMatch}`,
   required: false
 });
 
-const object = fieldNamesToValidations => ({
+customValidator.object = fieldNamesToValidations => ({
   getErrors: formValues => {
     const fieldsToValidate = Object.keys(fieldNamesToValidations);
 
@@ -107,6 +108,7 @@ const customValidatorSupport = customValidator => ({
  * index.js
  *
  */
+const { addValidation } = TShirtForm; // import { addValidation } from "react-t-shirt-forms";
 TShirtForm = TShirtForm.default; // import TShirtForm from "react-t-shirt-forms";
 
 // this tells T-Shirt Forms to use `customValidator` for any validations

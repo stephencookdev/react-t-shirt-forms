@@ -2,7 +2,6 @@
  name: TShirt Forms - Custom Validation Library
  description: https://github.com/stephencookdev/react-t-shirt-forms
  resources:
-   - https://unpkg.com/babel-standalone@6/babel.min.js
    - https://unpkg.com/babel-polyfill@6/dist/polyfill.js
    - https://unpkg.com/react@16/umd/react.development.js
    - https://unpkg.com/react-dom@16/umd/react-dom.development.js
