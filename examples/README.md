@@ -8,13 +8,13 @@ The easiest way to get a feel for how to use T-Shirt Forms is to take a look at 
 
 ## Form with Custom Styling
 
-[demo]() / [code](./custom-styling)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/custom-styling/jsfiddle) / [code](./custom-styling)
 
 T-Shirt Forms is modular. If you don't want the default stylings that come with the form, then you can not `import` them, and they won't end up in your bundle!
 
 ## Field Validations
 
-[demo]() / [code](./validations)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/validations/jsfiddle) / [code](./validations)
 
 Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
 
@@ -26,7 +26,7 @@ It also allows you to hook in any validation library you want! It also comes wit
 
 ## Server Errors
 
-[demo]() / [code](./sever-errors)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/server-errors/jsfiddle) / [code](./server-errors)
 
 Sometimes front-end validations cannot catch all possible issues.
 
@@ -36,7 +36,7 @@ T-Shirt Forms lets you do this with `setFormErrors`.
 
 ## Custom Validation Library
 
-[demo]() / [code](./custom-validation-library)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/custom-validation-library/jsfiddle) / [code](./custom-validation-library)
 
 Forms often have validation logic on the front-end, to show immediate feedback to the user about if what they're entering is valid or not.
 
@@ -48,7 +48,7 @@ It also has a simple API to let you hook in any custom validation library you wa
 
 ## Schema Options (e.g. Custom Components)
 
-[demo]() / [code](./default-schema-options)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/default-schema-options/jsfiddle) / [code](./default-schema-options)
 
 Often you don't want to use a plain text input, you want to use your own custom text input.
 
@@ -58,7 +58,7 @@ T-Shirt Forms lets you do this by specifying `component` or `defaultValue` in th
 
 ## Form Options (e.g. `renderButtons` and `renderFormItem`)
 
-[demo]() / [code](./form-options)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/form-options/jsfiddle) / [code](./form-options)
 
 Some forms have specific needs, that are different to the "normal" form that you have
 
@@ -66,7 +66,7 @@ For this, T-Shirt Forms lets you override its rendering methods, such as `render
 
 ## Default Form Options
 
-[demo]() / [code](./default-form-options)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/default-form-options/jsfiddle) / [code](./default-form-options)
 
 T-Shirt Forms lets override its rendering methods, such as `renderButtons`, for a particular form.
 
@@ -76,7 +76,7 @@ T-Shirt Forms lets you do this by calling `setOptionDefaults`, a global call tha
 
 ## Form Exceptions
 
-[demo]() / [code](./form-exceptions)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/form-exceptions/jsfiddle) / [code](./form-exceptions)
 
 Sometimes fields have specific rendering needs. A common example is "first name"/"last name", or "current password"/"new password" both being on the same line (rather than the default rendering method of 1 item per line)
 
@@ -84,7 +84,7 @@ For this, T-Shirt Forms provides a `formItemExceptions` form option.
 
 ## Omitting Fields Dynamically
 
-[demo]() / [code](./show-when)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/show-when/jsfiddle) / [code](./show-when)
 
 A common pattern is for certain form elements to be dynamic, and disappear in certain circumstances.
 
@@ -92,7 +92,7 @@ T-Shirt Forms gives you a `showOnlyWhen` property to describe this.
 
 ## Groups
 
-[demo]() / [code](./groups)
+[demo](https://jsfiddle.net/gh/get/library/pure/stephencookdev/react-t-shirt-forms/tree/master/examples/groups/jsfiddle) / [code](./groups)
 
 A common pattern in building forms is to split the form itself into sections.
 

@@ -1,5 +1,5 @@
 ---
- name: TShirt Forms - Basic Form
+ name: TShirt Forms - Custom Validation Library
  description: https://github.com/stephencookdev/react-t-shirt-forms
  resources:
    - https://unpkg.com/babel-standalone@6/babel.min.js

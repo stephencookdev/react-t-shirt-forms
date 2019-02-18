@@ -1,0 +1,144 @@
+/**
+ * This CSS file used for demoing the TShirt Forms example in JSFiddle.
+ * Check out all of the examples on GitHub.
+ *
+ * https://github.com/stephencookdev/react-t-shirt-forms/tree/master/examples
+ */
+.TShirtForm-form {
+  width: 600px;
+  padding: 24px 32px;
+  font-family: monospace;
+}
+
+.TShirtForm-form-item {
+  margin-bottom: 20px;
+  font: inherit;
+  position: relative;
+}
+.TShirtForm-form-item:last-of-type {
+  margin-bottom: 0;
+}
+.TShirtForm-form-item__error-text {
+  font-size: 12px;
+  font-family: inherit;
+  color: #e44;
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: top;
+  display: block;
+  margin-top: 4px;
+}
+
+.TShirtForm-text-input__label span,
+.TShirtForm-multichoice__label span {
+  font-size: 14px;
+  color: #777;
+}
+.TShirtForm-text-input__label input,
+.TShirtForm-multichoice__label select {
+  display: block;
+  width: 100%;
+  border: 0;
+  background-color: inherit;
+  color: #222;
+  border-bottom: 1px solid #ccc;
+  font: inherit;
+  font-size: 24px;
+  padding: 8px 0;
+  outline: none;
+}
+.TShirtForm-text-input__label input:hover,
+.TShirtForm-multichoice__label select:hover {
+  border-color: #bbb;
+}
+.TShirtForm-text-input__label input:focus,
+.TShirtForm-multichoice__label select:focus {
+  border-bottom-width: 2px;
+  padding-bottom: 7px;
+  border-color: #e94;
+  color: #e94;
+}
+.TShirtForm-form-item--error .TShirtForm-text-input__label input,
+.TShirtForm-form-item--error .TShirtForm-multichoice__label select {
+  border-bottom-width: 2px;
+  padding-bottom: 7px;
+  border-color: #e44;
+  color: #e44;
+}
+
+.TShirtForm-checkbox__label {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+}
+.TShirtForm-checkbox__label input {
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+.TShirtForm-checkbox__label span {
+  color: #222;
+}
+.TShirtForm-form-item--error .TShirtForm-checkbox__label {
+  border-bottom: 2px solid #e44;
+}
+
+.TShirtForm-button-list {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  margin-top: 32px;
+}
+.TShirtForm-button-list button {
+  font: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px 32px;
+  width: 100%;
+  background: #e94;
+  color: #eee;
+  border: 0;
+  transition: 0.3s ease all;
+}
+.TShirtForm-button-list button:not(:disabled):hover,
+.TShirtForm-button-list button:not(:disabled):focus {
+  background: #d83;
+  color: #fff;
+  transform: scale(1.02);
+}
+.TShirtForm-button-list button:not(:disabled):active {
+  transform: scale(1);
+}
+.TShirtForm-button-list button:disabled {
+  filter: grayscale();
+}
+
+.TShirtForm-form-error:not(:empty) {
+  color: #e44;
+  border: 2px solid #e44;
+  padding: 16px 20px;
+  font: inherit;
+  margin: 48px 0;
+}
+
+/*
+ * This isn't needed at all, but we just center everything to make the demo
+ * easier to see in an empty page
+ */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: fit-content;
+  min-width: fit-content;
+  padding: 16px;
+}
