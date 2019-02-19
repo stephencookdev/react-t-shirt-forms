@@ -1,6 +1,6 @@
 import babel from "rollup-plugin-babel";
 import resolve from "rollup-plugin-node-resolve";
-import rollupAsync from "rollup-plugin-async";
+import commonjs from "rollup-plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 
 const configOptions = [
@@ -26,9 +26,13 @@ const baseConfig = ({ format, production }) => ({
     }
   },
   external: ["react"],
-  plugins: [babel(), resolve(), rollupAsync()].concat(
-    production ? terser() : []
-  )
+  plugins: [
+    babel({ runtimeHelpers: true, exclude: "node_modules/**" }),
+    commonjs({
+      include: "node_modules/**"
+    }),
+    resolve()
+  ].concat(production ? terser() : [])
 });
 
 export default configOptions.map(baseConfig);
