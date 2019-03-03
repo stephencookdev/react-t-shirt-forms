@@ -26,6 +26,16 @@ yarn add -D react-t-shirt-forms
 
 ## Usage
 
+### API
+
+See the [API docs](./api).
+
+### Examples
+
+We show some basic examples on this page.
+
+But you can see some more common flows [in the examples](./examples).
+
 ### Bare Bones Form
 
 ```javascript
@@ -123,14 +133,6 @@ const formSchema = {
 ```
 
 you'll see that it's using your `MyCustomPasswordInput` component.
-
-### More
-
-T-Shirt Forms handles other common flows too, check out [more examples](./examples).
-
-## API
-
-See the [API docs](./api).
 
 ## Bundle Size
 

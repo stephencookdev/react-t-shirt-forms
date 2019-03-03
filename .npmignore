@@ -4,6 +4,7 @@
 .babelrc
 rollup.config.js
 examples
+api
 src
 dist/examples
 node_modules

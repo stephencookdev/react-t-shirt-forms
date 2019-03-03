@@ -39,11 +39,11 @@ const optionDefaults = {
     </div>
   ),
 
+  handleSubmit: () => console.error("`handleSubmit` not defined!"),
+
   formItemGroups: [],
 
   formItemExceptions: [],
-
-  handleSubmit: () => console.error("`handleSubmit` not defined!"),
 
   passThroughProps: {}
 };
