@@ -1,18 +1,35 @@
 import React from "react";
+import { genStyled } from "../optionDefaults";
 
-const EmailInputComponent = ({ required, onChange, onBlur, value, label }) => (
-  <label className="TShirtForm-component__label TShirtForm-email-input__label TShirtForm-text-input__label">
-    <span>
-      {label}
-      {required && <span className="TShirtForm-component__required-star" />}
-    </span>
-    <input
-      type="text"
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      onBlur={e => onBlur(e)}
-    />
-  </label>
-);
+const EmailInputComponent = ({
+  className,
+  required,
+  onChange,
+  onBlur,
+  value,
+  label
+}) => {
+  const Label = genStyled("label")(["email-input", "component"], "label");
+  const Input = genStyled("input")(["email-input", "component"], "input");
+  const RequiredStar = genStyled("span")(
+    ["email-input", "component"],
+    "required-star"
+  );
+
+  return (
+    <Label className={className}>
+      <span>
+        {label}
+        {required && <RequiredStar />}
+      </span>
+      <Input
+        type="text"
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        onBlur={e => onBlur(e)}
+      />
+    </Label>
+  );
+};
 
 export default EmailInputComponent;

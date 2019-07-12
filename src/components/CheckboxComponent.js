@@ -1,18 +1,27 @@
 import React from "react";
+import { genStyled } from "../optionDefaults";
 
-const CheckboxComponent = ({ required, onChange, onBlur, value, label }) => (
-  <label className="TShirtForm-component__label TShirtForm-checkbox__label">
-    <input
-      type="checkbox"
-      checked={value}
-      onChange={e => onChange(e.target.checked)}
-      onBlur={e => onBlur(e)}
-    />
-    <span>
-      {label}
-      {required && <span className="TShirtForm-component__required-star" />}
-    </span>
-  </label>
-);
+const CheckboxComponent = ({ required, onChange, onBlur, value, label }) => {
+  const Label = genStyled("label")(["checkbox", "component"], "label");
+  const Input = genStyled("input")(["checkbox", "component"], "input");
+  const RequiredStar = genStyled("span")(
+    ["checkbox", "component"],
+    "required-star"
+  );
 
+  return (
+    <Label>
+      <Input
+        type="checkbox"
+        checked={value}
+        onChange={e => onChange(e.target.checked)}
+        onBlur={e => onBlur(e)}
+      />
+      <span>
+        {label}
+        {required && <RequiredStar />}
+      </span>
+    </Label>
+  );
+};
 export default CheckboxComponent;

@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import { getOptionDefaults, setOptionDefaults } from "./optionDefaults";
+import {
+  getOptionDefaults,
+  setOptionDefaults,
+  genStyled
+} from "./optionDefaults";
 import { getSchemaDefaults, setSchemaDefaults } from "./schemaDefaults";
 import { addValidation, validationFuncs, yupSupport } from "./validations";
 import {
@@ -239,6 +243,7 @@ const Form = ({
     ...getOptionDefaults(),
     ...props
   };
+  const StyledForm = genStyled("form")("form", "container");
 
   const cookedSchema = getCookedSchema(schema);
 
@@ -325,8 +330,7 @@ const Form = ({
   const genericError = renderGenericError({ formArgs });
 
   return (
-    <form
-      className="TShirtForm-form"
+    <StyledForm
       onSubmit={async e => {
         e.preventDefault();
         const canSubmit = await setSubmittingState(true);
@@ -339,7 +343,7 @@ const Form = ({
       {Object.values(itemsWithGroups)}
       {genericError}
       {buttons}
-    </form>
+    </StyledForm>
   );
 };
 

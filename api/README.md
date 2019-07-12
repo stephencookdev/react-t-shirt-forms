@@ -113,7 +113,7 @@ The component will be passed the following props:
 
 - `value` - whatever the current form state value for the field is
 - `onChange` - a function, which takes the new value for this field, and returns nothing
-- `onBlur` - a function, which should be called whenever the field's blur event fires (this is used to help trigger validation errors at he correct time)
+- `onBlur` - a function, which should be called whenever the field's blur event fires (this is used to help trigger validation errors at the correct time)
 - `formArgs` - the [standard `formArgs`](#formargs) object
 - You also get passed all of the values of the schema for this particular field
 

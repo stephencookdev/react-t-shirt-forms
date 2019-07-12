@@ -5,6 +5,7 @@
    - https://unpkg.com/react@16/umd/react.development.js
    - https://unpkg.com/react-dom@16/umd/react-dom.development.js
    - https://unpkg.com/react-t-shirt-forms@0.0.1--rc6/dist/umd/react-t-shirt-forms.development.js
+   - https://unpkg.com/react-t-shirt-forms@0.0.1--rc6/dist/stylesheets/basic.css
  load_type: d
  js_wrap: b
  panel_js: 3

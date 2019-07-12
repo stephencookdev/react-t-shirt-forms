@@ -140,9 +140,9 @@ T-Shirt Forms makes an effort to be minimal and modular.
 
 Here's a look at its size, after tree-shaking, in different contexts:
 
-- bare bones (21.19 KB / **5.71 KB gzipped**)
-- with CSS stylings (29.40 KB / **8.51 KB gzipped**)
-- with yup validation (29.45 KB / **8.53 KB gzipped**)
+- bare bones (22.61 KB / **6.30 KB gzipped**)
+- with CSS stylings (30.89 KB / **9.11 KB gzipped**)
+- with yup validation (30.93 KB / **9.13 KB gzipped**)
 
 ## Contributing
 

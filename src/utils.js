@@ -40,3 +40,36 @@ export const mergeDeep = (target, ...sources) => {
 
   return mergeDeep(target, ...sources);
 };
+
+export const deepEquals = (x, y) => {
+  if (Array.isArray(x)) {
+    if (!Array.isArray(y)) return false;
+    if (x.length !== y.length) return false;
+
+    const foundYIndices = [];
+    for (let i = 0; i < x.length; i++) {
+      const foundIndex = y.findIndex(
+        (yAtJ, j) => !foundYIndices.includes(j) && deepEquals(x[i], yAtJ)
+      );
+      if (foundIndex === -1) return false;
+      foundYIndices.push(foundIndex);
+    }
+
+    return true;
+  } else if (typeof x === "object") {
+    if (typeof y !== "object") return false;
+
+    const xKeys = Object.keys(x);
+    const yKeys = Object.keys(y);
+    if (!deepEquals(xKeys, yKeys)) return false;
+
+    for (let i = 0; i < xKeys.length; i++) {
+      const k = xKeys[i];
+      if (!deepEquals(x[k], y[k])) return false;
+    }
+
+    return true;
+  } else {
+    return x === y;
+  }
+};

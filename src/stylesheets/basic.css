@@ -1,14 +1,14 @@
-.TShirtForm-form {
+.TShirtForm-form__container {
   width: 400px;
   box-shadow: 0 0 20px #ccc;
   padding: 24px 32px;
   font-family: sans-serif;
 }
 
-.TShirtForm-form-item-group:not(:first-of-type) {
+.TShirtForm-form-item__container-group:not(:first-of-type) {
   margin-top: 56px;
 }
-.TShirtForm-form-item-group__label {
+.TShirtForm-form-item__container-group-label {
   font-size: 18px;
   color: #49e;
   display: block;
@@ -16,12 +16,12 @@
   font-style: italic;
 }
 
-.TShirtForm-form-item {
+.TShirtForm-form-item__container {
   margin-bottom: 20px;
   font: inherit;
   position: relative;
 }
-.TShirtForm-form-item:last-of-type {
+.TShirtForm-form-item__container:last-of-type {
   margin-bottom: 0;
 }
 .TShirtForm-form-item__error-text:empty {
@@ -49,8 +49,8 @@
   font-size: 14px;
   color: #777;
 }
-.TShirtForm-text-input__label input,
-.TShirtForm-multichoice__label select {
+.TShirtForm-text-input__input,
+.TShirtForm-multichoice__input {
   display: block;
   width: 100%;
   border: 0;
@@ -63,19 +63,19 @@
   outline: none;
   transition: 0.2s ease all;
 }
-.TShirtForm-text-input__label input:hover,
-.TShirtForm-multichoice__label select:hover {
+.TShirtForm-text-input__input:hover,
+.TShirtForm-multichoice__input:hover {
   border-color: #bbb;
 }
-.TShirtForm-text-input__label input:focus,
-.TShirtForm-multichoice__label select:focus {
+.TShirtForm-text-input__input:focus,
+.TShirtForm-multichoice__input:focus {
   border-bottom-width: 2px;
   padding-bottom: 7px;
   border-color: #49e;
   color: #49e;
 }
-.TShirtForm-form-item--error .TShirtForm-text-input__label input,
-.TShirtForm-form-item--error .TShirtForm-multichoice__label select {
+.TShirtForm-form-item__container--error .TShirtForm-text-input__input,
+.TShirtForm-form-item__container--error .TShirtForm-multichoice__input {
   border-bottom-width: 2px;
   padding-bottom: 7px;
   border-color: #e44;
@@ -87,7 +87,7 @@
   align-items: center;
   padding: 16px 0;
 }
-.TShirtForm-checkbox__label input {
+.TShirtForm-checkbox__input {
   width: 20px;
   height: 20px;
   margin-right: 16px;
@@ -96,17 +96,17 @@
 .TShirtForm-checkbox__label span {
   color: #222;
 }
-.TShirtForm-form-item--error .TShirtForm-checkbox__label {
+.TShirtForm-form-item__container--error .TShirtForm-checkbox__label {
   border-bottom: 2px solid #e44;
 }
 
-.TShirtForm-button-list {
+.TShirtForm-form__button-list {
   display: flex;
   align-items: center;
   justify-content: stretch;
   margin-top: 32px;
 }
-.TShirtForm-button-list button {
+.TShirtForm-form__button-list button {
   font: inherit;
   font-size: 20px;
   font-weight: 500;
@@ -117,20 +117,20 @@
   border: 0;
   transition: 0.3s ease all;
 }
-.TShirtForm-button-list button:not(:disabled):hover,
-.TShirtForm-button-list button:not(:disabled):focus {
+.TShirtForm-form__button-list button:not(:disabled):hover,
+.TShirtForm-form__button-list button:not(:disabled):focus {
   background: #38d;
   color: #fff;
   transform: scale(1.015);
 }
-.TShirtForm-button-list button:not(:disabled):active {
+.TShirtForm-form__button-list button:not(:disabled):active {
   transform: scale(1);
 }
-.TShirtForm-button-list button:disabled {
+.TShirtForm-form__button-list button:disabled {
   filter: grayscale();
 }
 
-.TShirtForm-form-error:not(:empty) {
+.TShirtForm-form__error:not(:empty) {
   color: #e44;
   border: 2px solid #e44;
   padding: 16px 20px;

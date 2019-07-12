@@ -1,5 +1,6 @@
 import React from "react";
 import i18n from "../i18n";
+import { genStyled } from "../optionDefaults";
 
 const MultiChoiceComponent = ({
   required,
@@ -8,27 +9,36 @@ const MultiChoiceComponent = ({
   value,
   label,
   choices
-}) => (
-  <label className="TShirtForm-component__label TShirtForm-multichoice__label">
-    <span>
-      {label}
-      {required && <span className="TShirtForm-component__required-star" />}
-    </span>
-    <select
-      value={value || ""}
-      onChange={e => onChange(e.target.value)}
-      onBlur={e => onBlur(e)}
-    >
-      <option value="" disabled hidden>
-        {i18n.multichoice.pleaseSelect}
-      </option>
-      {Object.keys(choices).map(choiceName => (
-        <option key={choiceName} value={choiceName}>
-          {choices[choiceName]}
+}) => {
+  const Label = genStyled("label")(["multichoice", "component"], "label");
+  const Select = genStyled("select")(["multichoice", "component"], "input");
+  const RequiredStar = genStyled("span")(
+    ["multichoice", "component"],
+    "required-star"
+  );
+
+  return (
+    <Label>
+      <span>
+        {label}
+        {required && <RequiredStar />}
+      </span>
+      <Select
+        value={value || ""}
+        onChange={e => onChange(e.target.value)}
+        onBlur={e => onBlur(e)}
+      >
+        <option value="" disabled hidden>
+          {i18n.multichoice.pleaseSelect}
         </option>
-      ))}
-    </select>
-  </label>
-);
+        {Object.keys(choices).map(choiceName => (
+          <option key={choiceName} value={choiceName}>
+            {choices[choiceName]}
+          </option>
+        ))}
+      </Select>
+    </Label>
+  );
+};
 
 export default MultiChoiceComponent;

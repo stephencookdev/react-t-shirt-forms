@@ -5,7 +5,15 @@
  * https://github.com/stephencookdev/react-t-shirt-forms/tree/master/examples
  */
 
+const setOptionDefaults = TShirtForm.setOptionDefaults; // import { setOptionDefaults } from "react-t-shirt-forms";
 TShirtForm = TShirtForm.default; // import TShirtForm from "react-t-shirt-forms";
+
+setOptionDefaults({
+  classTransform: (block, element, modifier) => {
+    if (block === "form" && element === "container") return "myFormContainer";
+    if (block === "component" && element === "input") return "myInput";
+  }
+});
 
 const App = () => (
   <TShirtForm
@@ -16,7 +24,8 @@ const App = () => (
         initialValue: "Bruce Wayne"
       },
       email: {
-        type: "email"
+        type: "email",
+        className: "myCustomEmail"
       },
       dob: {
         type: "date",

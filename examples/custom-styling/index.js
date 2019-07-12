@@ -1,7 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TShirtForm from "react-t-shirt-forms";
+import TShirtForm, { setOptionDefaults } from "react-t-shirt-forms";
+import "react-t-shirt-forms/dist/stylesheets/basic.min.css";
 import "./styles.css";
+
+setOptionDefaults({
+  classTransform: (block, element, modifier) => {
+    if (block === "form" && element === "container") return "myFormContainer";
+    if (block === "component" && element === "input") return "myInput";
+  }
+});
 
 const App = () => (
   <TShirtForm
@@ -12,7 +20,8 @@ const App = () => (
         initialValue: "Bruce Wayne"
       },
       email: {
-        type: "email"
+        type: "email",
+        className: "myCustomEmail"
       },
       dob: {
         type: "date",
